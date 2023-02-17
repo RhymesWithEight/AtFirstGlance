@@ -1,0 +1,345 @@
+[gd_scene load_steps=19 format=3 uid="uid://lyb1cvot30sk"]
+
+[ext_resource type="Script" path="res://main_screen.gd" id="1_w633q"]
+[ext_resource type="Texture2D" uid="uid://chpbsq8wyavt1" path="res://Graphics/main_screen_render.png" id="4_utvop"]
+[ext_resource type="Theme" uid="uid://jcyhj2chojpq" path="res://Themes/HandwritingTheme.tres" id="4_v1t4b"]
+[ext_resource type="Texture2D" uid="uid://crhcoyh4vjdwy" path="res://Graphics/notepad.png" id="5_17wbf"]
+[ext_resource type="PackedScene" uid="uid://dodhp5hv302u8" path="res://settings.tscn" id="5_hgy4u"]
+[ext_resource type="Texture2D" uid="uid://c2864vcpyvv68" path="res://Graphics/arrow.png" id="6_m5sdn"]
+[ext_resource type="AudioStream" uid="uid://b43xi3qsxyoh1" path="res://Audio/room-with-buzz-incandescent-light-bulb-23892.mp3" id="6_tpth6"]
+[ext_resource type="AudioStream" uid="uid://dri7civj4c1vp" path="res://Audio/click.mp3" id="7_targ4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rbiy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ovkni"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r5w1d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d5774"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x6oxi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awo7p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cljyn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4283k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g0qyd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s8cnk"]
+
+[node name="MainScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w633q")
+
+[node name="Room" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_utvop")
+metadata/_edit_lock_ = true
+
+[node name="HighScore" type="Label" parent="Room"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.409
+anchor_top = 0.596
+anchor_right = 0.409
+anchor_bottom = 0.596
+offset_left = -158.72
+offset_top = 93.6799
+offset_right = 210.28
+offset_bottom = 252.68
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.538489
+theme = ExtResource("4_v1t4b")
+text = "HIGHSCORE"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Room"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.581
+anchor_top = 0.716
+anchor_right = 0.581
+anchor_bottom = 0.716
+offset_left = -235.48
+offset_top = 37.2799
+offset_right = 201.52
+offset_bottom = 225.28
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.562227
+theme = ExtResource("4_v1t4b")
+theme_override_font_sizes/font_size = 120
+text = "0"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.0196078)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.637
+anchor_top = 0.218
+anchor_right = 0.685
+anchor_bottom = 0.236
+offset_left = -115.96
+offset_top = -12.56
+offset_right = 78.2
+offset_bottom = 92.88
+rotation = -0.222664
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.86
+anchor_right = 0.5
+anchor_bottom = 0.86
+offset_left = -92.0
+offset_top = -52.2001
+offset_right = 100.0
+offset_bottom = 115.8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0rbiy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ovkni")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r5w1d")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d5774")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x6oxi")
+
+[node name="Credits" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_17wbf")
+
+[node name="Close" type="Button" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 200.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_awo7p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cljyn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4283k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g0qyd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s8cnk")
+
+[node name="WhoMade" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -527.0
+offset_right = 413.0
+offset_bottom = 142.0
+grow_horizontal = 2
+theme = ExtResource("4_v1t4b")
+text = "WHOMADE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ConnectLink" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = -492.0
+offset_right = 474.0
+offset_bottom = 187.0
+grow_horizontal = 2
+theme = ExtResource("4_v1t4b")
+theme_override_font_sizes/font_size = 45
+text = "CONNECTLINK"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="DonateButton" type="LinkButton" parent="Credits/ConnectLink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WhoHelped" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -175.5
+offset_top = 309.0
+offset_right = 183.5
+offset_bottom = 397.0
+grow_horizontal = 2
+theme = ExtResource("4_v1t4b")
+text = "WHOHELPED"
+
+[node name="Opener" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_left = 104.0
+offset_top = 309.0
+offset_right = -96.0
+offset_bottom = 258.0
+theme = ExtResource("4_v1t4b")
+theme_override_font_sizes/font_size = 45
+text = "CREDITSOPEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Translators" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_left = 100.0
+offset_top = 277.0
+offset_right = -100.0
+offset_bottom = 365.0
+theme = ExtResource("4_v1t4b")
+text = "TRANSLATORS"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TranslatorsList" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.35
+anchor_right = 1.0
+anchor_bottom = 0.55
+offset_left = 100.0
+offset_top = 277.0
+offset_right = -100.0
+offset_bottom = 188.0
+theme = ExtResource("4_v1t4b")
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Assets" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.55
+anchor_right = 1.0
+anchor_bottom = 0.55
+offset_left = 100.0
+offset_top = 207.0
+offset_right = -100.0
+offset_bottom = 295.0
+theme = ExtResource("4_v1t4b")
+text = "ASSETS"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AssetList1" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 0.6
+offset_left = 100.0
+offset_top = 207.0
+offset_right = -100.0
+offset_bottom = 274.0
+theme = ExtResource("4_v1t4b")
+theme_override_font_sizes/font_size = 45
+text = "ASSETLIST1"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AssetList2" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.65
+anchor_right = 1.0
+anchor_bottom = 0.65
+offset_left = 100.0
+offset_top = 207.0
+offset_right = -100.0
+offset_bottom = 357.0
+theme = ExtResource("4_v1t4b")
+theme_override_font_sizes/font_size = 45
+text = "ASSETLIST2"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AssetList3" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 0.75
+offset_left = 100.0
+offset_top = 207.0
+offset_right = -100.0
+offset_bottom = 274.0
+theme = ExtResource("4_v1t4b")
+theme_override_font_sizes/font_size = 45
+text = "ASSETLIST3"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CloseHere" type="Button" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = -100.0
+mouse_filter = 2
+theme = ExtResource("4_v1t4b")
+theme_override_font_sizes/font_size = 45
+disabled = true
+text = "CLOSEHERE"
+icon = ExtResource("6_m5sdn")
+expand_icon = true
+
+[node name="Settings" parent="." instance=ExtResource("5_hgy4u")]
+layout_mode = 1
+hide_quit = true
+metadata/_edit_lock_ = true
+
+[node name="LightBuzz" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_tpth6")
+bus = &"Effects"
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_targ4")
+bus = &"Effects"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="credits_open"]
+[connection signal="pressed" from="Credits/Close" to="." method="credits_close"]

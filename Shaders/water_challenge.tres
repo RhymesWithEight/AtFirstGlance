@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ds2bhw35kd7jb"]
+
+[ext_resource type="Shader" path="res://Shaders/water_challenge.gdshader" id="1_p6wcg"]
+
+[resource]
+shader = ExtResource("1_p6wcg")
+shader_parameter/proportion = null

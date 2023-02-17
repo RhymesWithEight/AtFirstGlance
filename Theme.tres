@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c8fs3kt0fus1r"]
+
+[ext_resource type="FontFile" uid="uid://bq1tn8h71lhr7" path="res://Fonts/HappyTimeTwo-q1J1.otf" id="1_bc3mj"]
+
+[resource]
+default_font = ExtResource("1_bc3mj")
+default_font_size = 60
+Button/colors/font_color = Color(1, 0.905882, 0.729412, 1)
+Fonts/fonts/large = ExtResource("1_bc3mj")
+Fonts/fonts/normal = ExtResource("1_bc3mj")
+Label/colors/font_color = Color(1, 0.905882, 0.729412, 1)

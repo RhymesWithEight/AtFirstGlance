@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccwcwm661ygur"
+path="res://.godot/imported/Samba Isobel.mp3-fc66f855062ce5106893160e52918c59.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Samba Isobel.mp3"
+dest_files=["res://.godot/imported/Samba Isobel.mp3-fc66f855062ce5106893160e52918c59.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

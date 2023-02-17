@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://jcyhj2chojpq"]
+
+[ext_resource type="FontFile" uid="uid://bifgmpc3gt45h" path="res://Fonts/ArchitectsDaughter-Regular.ttf" id="1_0selt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23eae"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1p8cq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j28if"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kilge"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48a57"]
+
+[resource]
+default_font = ExtResource("1_0selt")
+default_font_size = 60
+Button/colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+Button/colors/font_disabled_color = Color(0.180392, 0.180392, 0.180392, 1)
+Button/colors/icon_disabled_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_23eae")
+Button/styles/focus = SubResource("StyleBoxEmpty_1p8cq")
+Button/styles/hover = SubResource("StyleBoxEmpty_j28if")
+Button/styles/normal = SubResource("StyleBoxEmpty_kilge")
+Button/styles/pressed = SubResource("StyleBoxEmpty_48a57")
+Label/colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+LinkButton/colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+RichTextLabel/colors/default_color = Color(0.180392, 0.180392, 0.180392, 1)

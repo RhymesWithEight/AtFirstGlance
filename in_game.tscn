@@ -1,0 +1,406 @@
+[gd_scene load_steps=19 format=3 uid="uid://cvs3nrj62s0vl"]
+
+[ext_resource type="Script" path="res://in_game.gd" id="1_xwch1"]
+[ext_resource type="PackedScene" uid="uid://dodhp5hv302u8" path="res://settings.tscn" id="2_cqj4t"]
+[ext_resource type="PackedScene" uid="uid://ksofg828lneu" path="res://Challenges/area_challenge.tscn" id="2_wfnrm"]
+[ext_resource type="PackedScene" uid="uid://bkub0g3cjqhe8" path="res://Challenges/grid_challenge.tscn" id="3_353e2"]
+[ext_resource type="Texture2D" uid="uid://rvcf5scddoad" path="res://Graphics/screen.png" id="5_5m3cy"]
+[ext_resource type="PackedScene" uid="uid://cqa2dh8hyipg2" path="res://Challenges/lights_challenge.tscn" id="5_fv6v7"]
+[ext_resource type="PackedScene" uid="uid://c5gitu58udlsm" path="res://Challenges/animal_challenge.tscn" id="5_hv17k"]
+[ext_resource type="PackedScene" uid="uid://b3v73tnutxilw" path="res://Challenges/water_challenge.tscn" id="6_c6g8l"]
+[ext_resource type="Texture2D" uid="uid://6wx2q2leh7b2" path="res://Graphics/questionbox.png" id="8_2aq76"]
+[ext_resource type="AudioStream" uid="uid://1jrr73wa10qm" path="res://Audio/slide_change.mp3" id="8_cl6ye"]
+[ext_resource type="Theme" uid="uid://d3u1esf10xly6" path="res://Themes/Theme.tres" id="9_3fpkg"]
+[ext_resource type="Theme" uid="uid://jcyhj2chojpq" path="res://Themes/HandwritingTheme.tres" id="9_gvxow"]
+[ext_resource type="AudioStream" uid="uid://pg34xgu4jxec" path="res://Audio/fan.wav" id="9_wvt6p"]
+[ext_resource type="Texture2D" uid="uid://b2sc4p87ptcww" path="res://Graphics/Tutorial/arrow_brtl.png" id="10_hyntt"]
+[ext_resource type="Texture2D" uid="uid://csyaoam33kouf" path="res://Graphics/Tutorial/arrow_bt.png" id="11_lypo4"]
+[ext_resource type="Texture2D" uid="uid://dtuwhsp8djjl8" path="res://Graphics/Tutorial/arrow_bltr.png" id="12_rrmrr"]
+[ext_resource type="Texture2D" uid="uid://4x77we6ls6j" path="res://Graphics/Tutorial/arrow_bl.png" id="13_4g818"]
+[ext_resource type="Texture2D" uid="uid://djiv24u3frwi4" path="res://Graphics/Tutorial/arrow_br.png" id="14_7j0cc"]
+
+[node name="InGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_xwch1")
+challenges = Array[PackedScene]([ExtResource("2_wfnrm"), ExtResource("3_353e2"), ExtResource("5_fv6v7"), ExtResource("5_hv17k"), ExtResource("6_c6g8l")])
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Slide" type="Control" parent="."]
+custom_minimum_size = Vector2(1160, 1000)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1500.0
+offset_top = 625.0
+offset_right = -340.0
+offset_bottom = 1625.0
+mouse_filter = 2
+
+[node name="ColorBackground" type="ColorRect" parent="Slide"]
+use_parent_material = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.701961, 0.513726, 0.4, 1)
+
+[node name="TL" type="Polygon2D" parent="Slide"]
+use_parent_material = true
+scale = Vector2(0.5, 0.5)
+color = Color(0.701961, 0.513726, 0.4, 1)
+polygon = PackedVector2Array(80, 80, 80, 0, 48.639, 6.403, 40, 10.718, 34.418, 14.256, 30.167, 17.417, 26.612, 20.42, 23.431, 23.431, 20.42, 26.612, 17.417, 30.167, 14.256, 34.418, 10.718, 40, 6.403, 48.639, 0, 80)
+
+[node name="TR" type="Polygon2D" parent="Slide"]
+use_parent_material = true
+position = Vector2(1160, 0)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+color = Color(0.701961, 0.513726, 0.4, 1)
+texture_scale = Vector2(1.25, 1.25)
+polygon = PackedVector2Array(80, 80, 80, 0, 48.639, 6.403, 40, 10.718, 34.418, 14.256, 30.167, 17.417, 26.612, 20.42, 23.431, 23.431, 20.42, 26.612, 17.417, 30.167, 14.256, 34.418, 10.718, 40, 6.403, 48.639, 0, 80)
+
+[node name="BL" type="Polygon2D" parent="Slide"]
+use_parent_material = true
+position = Vector2(0, 1000)
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+color = Color(0.701961, 0.513726, 0.4, 1)
+texture_scale = Vector2(1.25, 1.25)
+polygon = PackedVector2Array(80, 80, 80, 0, 48.639, 6.403, 40, 10.718, 34.418, 14.256, 30.167, 17.417, 26.612, 20.42, 23.431, 23.431, 20.42, 26.612, 17.417, 30.167, 14.256, 34.418, 10.718, 40, 6.403, 48.639, 0, 80)
+
+[node name="BR" type="Polygon2D" parent="Slide"]
+use_parent_material = true
+position = Vector2(1160, 1000)
+rotation = -3.14159
+scale = Vector2(0.5, 0.5)
+color = Color(0.701961, 0.513726, 0.4, 1)
+texture_scale = Vector2(1.25, 1.25)
+polygon = PackedVector2Array(80, 80, 80, 0, 48.639, 6.403, 40, 10.718, 34.418, 14.256, 30.167, 17.417, 26.612, 20.42, 23.431, 23.431, 20.42, 26.612, 17.417, 30.167, 14.256, 34.418, 10.718, 40, 6.403, 48.639, 0, 80)
+
+[node name="SlideBody" type="ColorRect" parent="Slide"]
+use_parent_material = true
+custom_minimum_size = Vector2(1080, 1000)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -500.0
+offset_right = 540.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SlideContents" type="Sprite2D" parent="Slide"]
+position = Vector2(580, 500)
+
+[node name="Screen" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("5_5m3cy")
+
+[node name="QuestionBox" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 250.0
+offset_right = 1040.0
+offset_bottom = 550.0
+mouse_filter = 2
+texture = ExtResource("8_2aq76")
+expand_mode = 2
+
+[node name="Question" type="Label" parent="QuestionBox"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_right = -80.0
+grow_horizontal = 2
+theme = ExtResource("9_3fpkg")
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -120.0
+offset_right = 120.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme = ExtResource("9_3fpkg")
+theme_override_font_sizes/font_size = 60
+text = "4.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Guess" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_bottom = 1.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.235294)
+
+[node name="TotalError" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.31
+color = Color(1, 0, 0, 1)
+
+[node name="Error" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_bottom = 0.05
+offset_right = 125.0
+offset_bottom = 125.0
+theme = ExtResource("9_3fpkg")
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial" type="ColorRect" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.690196, 0.690196, 0.690196, 0.796078)
+
+[node name="TutScore" type="Label" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_bottom = 0.05
+offset_left = 36.0
+offset_top = 127.92
+offset_right = 344.0
+offset_bottom = 215.92
+rotation = -0.29025
+theme = ExtResource("9_gvxow")
+theme_override_font_sizes/font_size = 45
+text = "TUTSCORE"
+
+[node name="Arrow" type="TextureRect" parent="Tutorial/TutScore"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.5
+offset_top = -50.0
+texture = ExtResource("10_hyntt")
+stretch_mode = 2
+
+[node name="TutTime" type="Label" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -197.52
+offset_top = 133.92
+offset_right = 110.48
+offset_bottom = 221.92
+rotation = 0.0582101
+theme = ExtResource("9_gvxow")
+theme_override_font_sizes/font_size = 45
+text = "TUTTIME"
+horizontal_alignment = 1
+
+[node name="Arrow" type="TextureRect" parent="Tutorial/TutTime"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -50.0
+texture = ExtResource("11_lypo4")
+stretch_mode = 2
+
+[node name="TutSettings" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 117.0
+offset_right = 1058.0
+offset_bottom = 247.0
+rotation = 0.3512
+theme = ExtResource("9_gvxow")
+theme_override_font_sizes/font_size = 45
+text = "TUTSETTINGS"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="Tutorial/TutSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -50.0
+texture = ExtResource("12_rrmrr")
+stretch_mode = 2
+
+[node name="TutQuestion" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 576.0
+offset_right = 874.0
+offset_bottom = 864.0
+rotation = -0.0673263
+theme = ExtResource("9_gvxow")
+theme_override_font_sizes/font_size = 45
+text = "TUTQUESTION"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="Tutorial/TutQuestion"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -50.0
+texture = ExtResource("12_rrmrr")
+stretch_mode = 2
+
+[node name="TutSlide" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 1530.0
+offset_right = 973.0
+offset_bottom = 1670.0
+rotation = 0.106807
+theme = ExtResource("9_gvxow")
+theme_override_font_sizes/font_size = 45
+text = "TUTSLIDE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="Tutorial/TutSlide"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -60.0
+texture = ExtResource("11_lypo4")
+stretch_mode = 2
+
+[node name="TutError" type="Label" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = -154.0
+offset_right = 1034.0
+offset_bottom = 2.0
+rotation = 0.0207139
+theme = ExtResource("9_gvxow")
+theme_override_font_sizes/font_size = 45
+text = "TUTERROR"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="0P" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1031.0
+offset_right = 326.0
+offset_bottom = 1119.0
+rotation = -0.29778
+theme = ExtResource("9_gvxow")
+text = "0%"
+
+[node name="Arrow" type="TextureRect" parent="Tutorial/0P"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = -40.0
+texture = ExtResource("13_4g818")
+stretch_mode = 2
+
+[node name="100P" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 1015.0
+offset_right = 1056.0
+offset_bottom = 1103.0
+rotation = -0.110693
+theme = ExtResource("9_gvxow")
+text = "100%"
+horizontal_alignment = 2
+
+[node name="Arrow" type="TextureRect" parent="Tutorial/100P"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = -40.0
+texture = ExtResource("14_7j0cc")
+stretch_mode = 2
+
+[node name="Settings" parent="." instance=ExtResource("2_cqj4t")]
+layout_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="SlideChange" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_cl6ye")
+volume_db = -4.0
+
+[node name="FanNoise" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("9_wvt6p")
+volume_db = -2.0
+pitch_scale = 0.3
+autoplay = true
+
+[node name="Screenshotter" type="SubViewport" parent="."]
+disable_3d = true
+size = Vector2i(1000, 1000)
+render_target_update_mode = 1
+
+[connection signal="gui_input" from="Tutorial" to="." method="_on_tutorial_gui_input"]
+[connection signal="quit" from="Settings" to="." method="lose"]

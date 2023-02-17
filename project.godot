@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="At First Glance"
+config/description="A game of quick visual estimation."
+run/main_scene="res://main_screen.tscn"
+config/features=PackedStringArray("4.0", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Music="*res://music.tscn"
+Global="*res://global.tscn"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/window_width_override=450
+window/size/window_height_override=800
+window/handheld/orientation=1
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Translations/translations.de.translation", "res://Translations/translations.en.translation", "res://Translations/translations.es.translation", "res://Translations/translations.fr.translation", "res://Translations/translations.ja.translation")
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+environment/ssao/quality=0
+environment/ssil/quality=0
+environment/glow/upscale_mode=0
+anti_aliasing/quality/msaa_2d=3
+anti_aliasing/quality/screen_space_aa=1

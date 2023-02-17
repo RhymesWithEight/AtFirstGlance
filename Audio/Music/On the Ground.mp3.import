@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bumlxi3c5fnno"
+path="res://.godot/imported/On the Ground.mp3-89b3520e1e14936ad79b0ddb61bff469.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/On the Ground.mp3"
+dest_files=["res://.godot/imported/On the Ground.mp3-89b3520e1e14936ad79b0ddb61bff469.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

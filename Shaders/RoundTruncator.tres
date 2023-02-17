@@ -1,0 +1,48 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bdxa8pgqtldon"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+uniform float radius = 20;
+
+void fragment()
+{
+	float max_x = 1.0 / TEXTURE_PIXEL_SIZE.x - radius;
+	float max_y = 1.0 / TEXTURE_PIXEL_SIZE.y - radius;
+	vec2 tlcenter = vec2(radius, radius);
+	vec2 trcenter = vec2(max_x, radius);
+	vec2 blcenter = vec2(radius, max_y);
+	vec2 brcenter = vec2(max_x, max_y);
+	float x = UV.x / TEXTURE_PIXEL_SIZE.x;
+	float y = UV.y / TEXTURE_PIXEL_SIZE.y;
+	if(x < radius && y < radius)
+	{
+		if(distance(tlcenter, vec2(x,y)) > radius)
+		{
+			discard;
+		}
+	}
+	if(x > max_x && y < radius)
+	{
+		if(distance(trcenter, vec2(x,y)) > radius)
+		{
+			discard;
+		}
+	}if(x < radius && y > max_y)
+	{
+		if(distance(blcenter, vec2(x,y)) > radius)
+		{
+			discard;
+		}
+	}if(x > max_x && y > max_y)
+	{
+		if(distance(brcenter, vec2(x,y)) > radius)
+		{
+			discard;
+		}
+	}
+}"
+
+[resource]
+shader = SubResource("1")
+shader_parameter/radius = 15.0

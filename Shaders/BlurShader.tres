@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dh0nvm0mefid0"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+uniform float dark_factor = 1;
+uniform float blur_factor = 4;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
+void fragment(){
+	COLOR.rgb = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_factor).rgb;
+	COLOR.rgb /= dark_factor;
+}"
+
+[resource]
+shader = SubResource("1")
+shader_parameter/dark_factor = 1.0
+shader_parameter/blur_factor = 4.0

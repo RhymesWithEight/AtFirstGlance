@@ -1,0 +1,318 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4pvldpj12c5w"]
+
+[ext_resource type="Script" path="res://volume_buttons.gd" id="1_0f8sv"]
+[ext_resource type="Texture2D" uid="uid://b1v37ohcmr3u5" path="res://Graphics/Settings/fill_circle.png" id="2_awgfc"]
+[ext_resource type="Theme" uid="uid://cqomrudetu3g2" path="res://Themes/Form.tres" id="2_fifef"]
+[ext_resource type="Texture2D" uid="uid://brn2j8wxhekik" path="res://Graphics/Settings/fill_circle_checked.png" id="3_tkcg3"]
+[ext_resource type="Texture2D" uid="uid://c8misfxjq8n4x" path="res://Graphics/Settings/fill_circle_smudged.png" id="4_nshm2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xt0c1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p5bs3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7iu0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tc8hq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clcvs"]
+
+[node name="VolumeButtons" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 40
+columns = 11
+script = ExtResource("1_0f8sv")
+circle = ExtResource("2_awgfc")
+checked = ExtResource("3_tkcg3")
+smudged = ExtResource("4_nshm2")
+number_on = -10
+
+[node name="0" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "0%"
+horizontal_alignment = 1
+
+[node name="10" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "10%"
+horizontal_alignment = 1
+
+[node name="20" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="20"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "20%"
+horizontal_alignment = 1
+
+[node name="30" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="30"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "30%"
+horizontal_alignment = 1
+
+[node name="40" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="40"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "40%"
+horizontal_alignment = 1
+
+[node name="50" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="50"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "50%"
+horizontal_alignment = 1
+
+[node name="60" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="60"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "60%"
+horizontal_alignment = 1
+
+[node name="70" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="70"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "70%"
+horizontal_alignment = 1
+
+[node name="80" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="80"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "80%"
+horizontal_alignment = 1
+
+[node name="90" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="90"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "90%"
+horizontal_alignment = 1
+
+[node name="100" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xt0c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5bs3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7iu0a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tc8hq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clcvs")
+toggle_mode = true
+icon = ExtResource("2_awgfc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="100"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fifef")
+text = "100%"
+horizontal_alignment = 1

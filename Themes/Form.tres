@@ -1,0 +1,33 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cqomrudetu3g2"]
+
+[ext_resource type="FontFile" uid="uid://deiri6nbvlfa8" path="res://Fonts/PixelOperator.ttf" id="1_4kth7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwf70"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ud2vb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wij3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7fw5b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fxag7"]
+
+[resource]
+Button/colors/font_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/font_disabled_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/font_focus_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/font_hover_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/font_hover_pressed_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/font_outline_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/font_pressed_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 45
+Button/fonts/font = ExtResource("1_4kth7")
+Button/styles/disabled = SubResource("StyleBoxEmpty_lwf70")
+Button/styles/focus = SubResource("StyleBoxEmpty_ud2vb")
+Button/styles/hover = SubResource("StyleBoxEmpty_1wij3")
+Button/styles/normal = SubResource("StyleBoxEmpty_7fw5b")
+Button/styles/pressed = SubResource("StyleBoxEmpty_fxag7")
+Label/colors/font_color = Color(0.172549, 0.172549, 0.172549, 1)
+Label/font_sizes/font_size = 45
+Label/fonts/font = ExtResource("1_4kth7")

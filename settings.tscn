@@ -1,0 +1,367 @@
+[gd_scene load_steps=28 format=3 uid="uid://dodhp5hv302u8"]
+
+[ext_resource type="Script" path="res://settings.gd" id="1_6s0fw"]
+[ext_resource type="Texture2D" uid="uid://c6ddw5u1ujtuj" path="res://WoodTexture.svg" id="2_j8r2y"]
+[ext_resource type="Texture2D" uid="uid://b1v37ohcmr3u5" path="res://Graphics/Settings/fill_circle.png" id="2_mnv1k"]
+[ext_resource type="Texture2D" uid="uid://brn2j8wxhekik" path="res://Graphics/Settings/fill_circle_checked.png" id="3_8yoii"]
+[ext_resource type="Theme" uid="uid://cqomrudetu3g2" path="res://Themes/Form.tres" id="3_mvep4"]
+[ext_resource type="AudioStream" uid="uid://bwj71sl74np3q" path="res://Audio/paper1.mp3" id="3_mxc27"]
+[ext_resource type="PackedScene" uid="uid://c4pvldpj12c5w" path="res://volume_buttons.tscn" id="4_l0mc6"]
+[ext_resource type="Texture2D" uid="uid://c8misfxjq8n4x" path="res://Graphics/Settings/fill_circle_smudged.png" id="4_wjs6x"]
+[ext_resource type="AudioStream" uid="uid://2tdbq7pjklhe" path="res://Audio/paper2.mp3" id="4_yoe2v"]
+[ext_resource type="AudioStream" uid="uid://o5bvvhb6krr2" path="res://Audio/paper_slide_1.mp3" id="7_gkald"]
+[ext_resource type="AudioStream" uid="uid://dsxolm4duxy8" path="res://Audio/paper_slide_2.mp3" id="8_ivog5"]
+[ext_resource type="AudioStream" uid="uid://f3urxiu6tpc7" path="res://Audio/paper_slide_3.mp3" id="9_ohon2"]
+[ext_resource type="AudioStream" uid="uid://bxgerets0nxmq" path="res://Audio/paper_slide_4.mp3" id="10_17pdn"]
+[ext_resource type="AudioStream" uid="uid://ddtftmpfmas7x" path="res://Audio/paper_slide_5.mp3" id="11_fw4vg"]
+[ext_resource type="AudioStream" uid="uid://c3lat3uhvet5m" path="res://Audio/paper_slide_6.mp3" id="12_2jllh"]
+[ext_resource type="AudioStream" uid="uid://b3g8g53pad1u4" path="res://Audio/pull_down.mp3" id="12_83g0e"]
+[ext_resource type="AudioStream" uid="uid://c8pl2tr6prnbl" path="res://Audio/pull_up.mp3" id="13_1qr6q"]
+[ext_resource type="Texture2D" uid="uid://dn72rys1d7ir" path="res://Graphics/Settings/pullchain_play.png" id="13_5aput"]
+[ext_resource type="AudioStream" uid="uid://ddst87li3lj5n" path="res://Audio/writing-on-paper-6988.mp3" id="13_844gn"]
+[ext_resource type="Texture2D" uid="uid://3xf5jalmfkiw" path="res://Graphics/Settings/settings_page.png" id="14_ej2b3"]
+[ext_resource type="Texture2D" uid="uid://ddx1jogpuyf32" path="res://Graphics/Settings/pullchain_down.png" id="15_vhjm1"]
+[ext_resource type="Texture2D" uid="uid://sjew0fm8ytt8" path="res://Graphics/Settings/pullchain_pause.png" id="17_2s2y7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lw5on"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6hgee"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xk83f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jb1t7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jtmob"]
+
+[node name="Settings" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_6s0fw")
+circle = ExtResource("2_mnv1k")
+checked = ExtResource("3_8yoii")
+smudged = ExtResource("4_wjs6x")
+paper_sounds = Array[AudioStreamMP3]([ExtResource("3_mxc27"), ExtResource("4_yoe2v")])
+paper_slide_sounds = Array[AudioStreamMP3]([ExtResource("7_gkald"), ExtResource("8_ivog5"), ExtResource("9_ohon2"), ExtResource("10_17pdn"), ExtResource("11_fw4vg"), ExtResource("12_2jllh")])
+play = ExtResource("13_5aput")
+pause = ExtResource("17_2s2y7")
+down = ExtResource("15_vhjm1")
+
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j8r2y")
+expand_mode = 4
+stretch_mode = 6
+
+[node name="Page" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -2200.0
+offset_top = 1000.0
+offset_right = -1120.0
+offset_bottom = 2920.0
+rotation = -0.785398
+texture = ExtResource("14_ej2b3")
+
+[node name="Admin" type="Label" parent="Page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_right = 1.0
+anchor_bottom = 0.033
+theme = ExtResource("3_mvep4")
+text = "ADMIN"
+vertical_alignment = 1
+
+[node name="WaffleTop" type="Label" parent="Page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.04
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_mvep4")
+theme_override_font_sizes/font_size = 32
+text = "SETTOP"
+horizontal_alignment = 3
+autowrap_mode = 2
+
+[node name="Start" type="Label" parent="Page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28
+anchor_top = 0.12
+anchor_right = 0.73
+anchor_bottom = 0.12
+offset_top = 0.823883
+offset_bottom = 44.8239
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_mvep4")
+text = "STARTHERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Contents" type="GridContainer" parent="Page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+
+[node name="MasterLabel" type="Label" parent="Page/Contents"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_mvep4")
+text = "MASTER"
+autowrap_mode = 2
+
+[node name="MasterButtons" parent="Page/Contents/MasterLabel" instance=ExtResource("4_l0mc6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+offset_left = 20.0
+offset_top = -200.0
+offset_right = -50.0
+channel = "master"
+
+[node name="EffectLabel" type="Label" parent="Page/Contents"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_mvep4")
+text = "EFFECT"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="EffectButtons" parent="Page/Contents/EffectLabel" instance=ExtResource("4_l0mc6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+offset_left = 20.0
+offset_top = -200.0
+offset_right = -50.0
+channel = "effect"
+
+[node name="MusicLabel" type="Label" parent="Page/Contents"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_mvep4")
+text = "MUSIC"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicButtons" parent="Page/Contents/MusicLabel" instance=ExtResource("4_l0mc6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+offset_left = 20.0
+offset_top = -200.0
+offset_right = -50.0
+channel = "music"
+
+[node name="LangLabel" type="Label" parent="Page/Contents"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_mvep4")
+text = "LANG"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Languages" type="GridContainer" parent="Page/Contents/LangLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -230.0
+offset_right = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 20
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="OutOfGame" type="Label" parent="Page/Contents"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_mvep4")
+theme_override_font_sizes/font_size = 32
+text = "OUTOFGAME"
+autowrap_mode = 2
+
+[node name="Quit1" type="Label" parent="Page/Contents"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_mvep4")
+text = "QUIT1"
+autowrap_mode = 2
+
+[node name="Yes" type="Button" parent="Page/Contents/Quit1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -100.0
+theme = ExtResource("3_mvep4")
+text = " Yes"
+icon = ExtResource("2_mnv1k")
+alignment = 0
+
+[node name="No" type="Button" parent="Page/Contents/Quit1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -100.0
+theme = ExtResource("3_mvep4")
+text = " No"
+icon = ExtResource("3_8yoii")
+alignment = 0
+
+[node name="Quit2" type="Label" parent="Page/Contents"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_mvep4")
+text = "QUIT2"
+autowrap_mode = 2
+
+[node name="Yes" type="Button" parent="Page/Contents/Quit2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -100.0
+theme = ExtResource("3_mvep4")
+text = " Yes"
+icon = ExtResource("2_mnv1k")
+alignment = 0
+
+[node name="No" type="Button" parent="Page/Contents/Quit2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -100.0
+theme = ExtResource("3_mvep4")
+text = " Yes"
+icon = ExtResource("3_8yoii")
+alignment = 0
+
+[node name="Quit3" type="Label" parent="Page/Contents"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_mvep4")
+text = "QUIT3"
+autowrap_mode = 2
+
+[node name="VolumeButtons" parent="Page/Contents/Quit3" instance=ExtResource("4_l0mc6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+offset_left = 20.0
+offset_top = -200.0
+offset_right = -50.0
+number_on = 0
+
+[node name="Blackout" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="OpenClose" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -125.0
+offset_bottom = 225.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lw5on")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6hgee")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xk83f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jb1t7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jtmob")
+icon = ExtResource("17_2s2y7")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ClickDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_83g0e")
+volume_db = -4.0
+
+[node name="ClickUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_1qr6q")
+volume_db = -4.0
+
+[node name="ScribbleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_844gn")
+
+[node name="PaperSound" type="AudioStreamPlayer" parent="."]
+
+[node name="PaperSlideSound" type="AudioStreamPlayer" parent="."]
+volume_db = -4.0
+
+[connection signal="visibility_changed" from="Background" to="." method="_on_background_visibility_changed"]
+[connection signal="volume" from="Page/Contents/MasterLabel/MasterButtons" to="." method="master_vol_changed"]
+[connection signal="volume" from="Page/Contents/EffectLabel/EffectButtons" to="." method="effect_vol_changed"]
+[connection signal="volume" from="Page/Contents/MusicLabel/MusicButtons" to="." method="music_vol_changed"]
+[connection signal="pressed" from="Page/Contents/Quit1/Yes" to="." method="on_quit_pressed" binds= [100, 1]]
+[connection signal="pressed" from="Page/Contents/Quit1/No" to="." method="on_quit_pressed" binds= [0, 1]]
+[connection signal="pressed" from="Page/Contents/Quit2/Yes" to="." method="on_quit_pressed" binds= [100, 2]]
+[connection signal="pressed" from="Page/Contents/Quit2/No" to="." method="on_quit_pressed" binds= [0, 2]]
+[connection signal="volume" from="Page/Contents/Quit3/VolumeButtons" to="." method="on_quit_pressed" binds= [3]]
+[connection signal="button_down" from="OpenClose" to="." method="_on_open_close_button_down"]
+[connection signal="button_up" from="OpenClose" to="." method="openclose_pressed"]

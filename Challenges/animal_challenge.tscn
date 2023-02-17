@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5gitu58udlsm"]
+
+[ext_resource type="Script" path="res://Challenges/animal_challenge.gd" id="1_qq52n"]
+[ext_resource type="Texture2D" uid="uid://d245wyal6rjll" path="res://Graphics/Animals/frame_plain.png" id="8_6x5xo"]
+[ext_resource type="Material" uid="uid://373xblduhj06" path="res://Shaders/vintage_filter.tres" id="8_8klh8"]
+
+[node name="AnimalChallenge" type="ColorRect"]
+custom_minimum_size = Vector2(1000, 1000)
+offset_right = 1000.0
+offset_bottom = 1000.0
+mouse_filter = 2
+color = Color(1, 0.980392, 0.917647, 1)
+script = ExtResource("1_qq52n")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.843137)
+material = ExtResource("8_8klh8")
+texture = ExtResource("8_6x5xo")
+centered = false
+region_rect = Rect2(931, 893.5, 1000, 1000)

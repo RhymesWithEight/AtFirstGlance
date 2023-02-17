@@ -120,6 +120,7 @@ func ramp_down_fan(delta):
 func calculate_error():
 	if total_error <= 100 and challenge != null:
 		error = challenge.percentage - guess
+		Global.log_error(challenge.name, error)
 		if error > 0:
 			$Error.anchor_right = $Guess.anchor_right + abs(error)/100
 			$Error.anchor_left = $Guess.anchor_right

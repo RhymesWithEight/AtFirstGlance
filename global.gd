@@ -10,6 +10,10 @@ var current_score_date
 var resolution : get = get_resolution
 var date : get = get_date
 var tutorial = false
+
+## An array of errors for each challenge, for stats purposes.
+var challenge_errors = {} 
+
 @export var music : Array[AudioStream]
 var played = [] : set = update_played
 var saved = false
@@ -36,7 +40,8 @@ var saveable = [
 	"high_score", 
 	"high_score_date",
 	"current_score",
-	"current_score_date"
+	"current_score_date",
+	"challenge_errors"
 	]
 
 
@@ -139,6 +144,17 @@ func heaviside(value):
 func get_date():
 	var new_date = Time.get_date_dict_from_system()
 	return str(new_date["month"]) + "/" + str(new_date["day"]) + "/" + str(new_date["year"]).right(2)
+
+## Creates a log of a guess error
+func log_error(node_name : String, error : float):
+	var chal_name = node_name.rstrip("Challenge")
+	
+	if challenge_errors.has(chal_name):
+		challenge_errors[chal_name].push_back(error)
+		if challenge_errors[chal_name].size() > 40:
+			challenge_errors[chal_name].remove_at(0)
+	else:
+		challenge_errors[chal_name] = [error]
 
 func save_game():
 	print("saving...")

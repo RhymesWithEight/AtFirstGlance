@@ -9,6 +9,7 @@ const error_min_alpha = 0.3
 var total_error = 0 : set = update_total_error
 var guess = 0 : set = update_guess
 var error_left
+var error_right
 var challenge
 
 var lost = false
@@ -60,13 +61,15 @@ func phase_2(progress):
 	fade_out(progress / 2)
 	if error == null:
 		calculate_error()
+	else:
+		expand_error(progress / 0.2)
 
 ## Third part of a round. 
 ## Finishes fading out, moves slide off screen.
 func phase_3(progress):
 	fade_out(progress / 2 + 0.5)
 	next_background_color = Color(0,0,0)
-	$Guess.modulate.a = progress
+	$Guess.modulate.a = 1 - progress
 	if !$SlideChange.playing:
 		$SlideChange.playing = true
 	move_challenge(progress)
@@ -121,19 +124,35 @@ func calculate_error():
 	if total_error <= 100 and challenge != null:
 		error = challenge.percentage - guess
 		Global.log_error(challenge.name, error)
+		
+		$Error.color = Color.RED
+		$Error.color.a = error_min_alpha
 		if error > 0:
-			$Error.anchor_right = $Guess.anchor_right + abs(error)/100
-			$Error.anchor_left = $Guess.anchor_right
+			error_right = $Guess.anchor_right + abs(error) / 100
+			error_left = $Guess.anchor_right
 		elif error < 0:
-			$Error.anchor_left = $Guess.anchor_right - abs(error)/100
-			$Error.anchor_right = $Guess.anchor_right
-		error_left = $Error.anchor_left
+			error_left = $Guess.anchor_right - abs(error) / 100
+			error_right = $Guess.anchor_right
+		
+		$Error.anchor_left = $Guess.anchor_right
+		$Error.anchor_right = $Guess.anchor_right
+
+func expand_error(progress):
+	if progress <= 1:
+		if error > 0:
+			$Error.anchor_right = error_left + progress * (error_right - error_left)
+		else:
+			$Error.anchor_left = error_right - progress * (error_right - error_left)
+	else:
+		$Error.anchor_right = error_right
+		$Error.anchor_left = error_left
 
 ## Moves the error bar every frame, down to the total error at the bottom.
 func move_error(progress):
 	if error != null:
 		$Error.anchor_top = pow(progress, 2)
 		$Error.anchor_bottom = 2*progress - 2 * progress + 1
+		
 		$Error.color.a = -1 * (1 - error_min_alpha) * pow(progress - 1, 2) + 1
 		var distance = error_left - $TotalError.anchor_right
 		$Error.anchor_left = $TotalError.anchor_right + distance * pow(1 - progress, 2)
@@ -145,9 +164,9 @@ func move_error(progress):
 ## Instantiates the next challenge, or a scorecard if you lost.
 func next_challenge():
 	guess = 0
-	score += 1
 	if total_error + abs(error_num) < 100:
 		create_challengecard()
+		score += 1
 	else:
 		prev_background_color = next_background_color
 		next_background_color = Color(0.1, 0.08, 0.05)

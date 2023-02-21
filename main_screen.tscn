@@ -1,6 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://lyb1cvot30sk"]
+[gd_scene load_steps=31 format=3 uid="uid://lyb1cvot30sk"]
 
 [ext_resource type="Script" path="res://main_screen.gd" id="1_w633q"]
+[ext_resource type="Texture2D" uid="uid://cmbxlt7gidy1u" path="res://Graphics/main_screen_render_no_bell.png" id="2_o4r3k"]
+[ext_resource type="Texture2D" uid="uid://b3g3vkj6x0dh8" path="res://Graphics/main_screen_pulse_no_bell.png" id="3_5h8hq"]
+[ext_resource type="Texture2D" uid="uid://1vv3f4fi8e6f" path="res://Graphics/main_screen_pulse.png" id="4_4kv2s"]
 [ext_resource type="Texture2D" uid="uid://chpbsq8wyavt1" path="res://Graphics/main_screen_render.png" id="4_utvop"]
 [ext_resource type="Theme" uid="uid://jcyhj2chojpq" path="res://Themes/HandwritingTheme.tres" id="4_v1t4b"]
 [ext_resource type="Texture2D" uid="uid://crhcoyh4vjdwy" path="res://Graphics/notepad.png" id="5_17wbf"]
@@ -8,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://c2864vcpyvv68" path="res://Graphics/arrow.png" id="6_m5sdn"]
 [ext_resource type="AudioStream" uid="uid://b43xi3qsxyoh1" path="res://Audio/room-with-buzz-incandescent-light-bulb-23892.mp3" id="6_tpth6"]
 [ext_resource type="AudioStream" uid="uid://dri7civj4c1vp" path="res://Audio/click.mp3" id="7_targ4"]
+[ext_resource type="PackedScene" uid="uid://bhovr72e2ndqo" path="res://stats.tscn" id="10_05igu"]
+[ext_resource type="AudioStream" uid="uid://d2i533ilt1moy" path="res://Audio/report.mp3" id="10_q2804"]
+[ext_resource type="AudioStream" uid="uid://dufppw4oy6vww" path="res://Audio/service-bell-ring-14610.mp3" id="11_jsyec"]
+[ext_resource type="AudioStream" uid="uid://cdeld0ibfcu0e" path="res://Audio/paper-rip-87198.mp3" id="13_5qym3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rbiy"]
 
@@ -18,6 +25,16 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d5774"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x6oxi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42gec"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4d2f1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lijbk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygoij"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ij4u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awo7p"]
 
@@ -38,6 +55,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w633q")
+render_belless = ExtResource("2_o4r3k")
+pulse_belless = ExtResource("3_5h8hq")
 
 [node name="Room" type="TextureRect" parent="."]
 layout_mode = 1
@@ -52,17 +71,17 @@ metadata/_edit_lock_ = true
 [node name="HighScore" type="Label" parent="Room"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.409
-anchor_top = 0.596
-anchor_right = 0.409
-anchor_bottom = 0.596
-offset_left = -158.72
-offset_top = 93.6799
-offset_right = 210.28
-offset_bottom = 252.68
+anchor_left = 0.079
+anchor_top = 0.586
+anchor_right = 0.56
+anchor_bottom = 0.642
+offset_left = 66.6799
+offset_top = 84.88
+offset_right = -83.8
+offset_bottom = 136.36
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.538489
+rotation = -0.459632
 theme = ExtResource("4_v1t4b")
 text = "HIGHSCORE"
 horizontal_alignment = 1
@@ -70,52 +89,79 @@ horizontal_alignment = 1
 [node name="Score" type="Label" parent="Room"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.581
-anchor_top = 0.716
-anchor_right = 0.581
-anchor_bottom = 0.716
-offset_left = -235.48
-offset_top = 37.2799
-offset_right = 201.52
-offset_bottom = 225.28
+anchor_left = 0.178
+anchor_top = 0.675
+anchor_right = 0.698
+anchor_bottom = 0.715
+offset_left = 25.7599
+offset_top = 61.0
+offset_right = -98.8401
+offset_bottom = 172.2
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.562227
+rotation = -0.475778
 theme = ExtResource("4_v1t4b")
 theme_override_font_sizes/font_size = 120
 text = "0"
 horizontal_alignment = 1
 
+[node name="ButtonGlow" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_4kv2s")
+metadata/_edit_lock_ = true
+
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.0196078)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.637
-anchor_top = 0.218
-anchor_right = 0.685
-anchor_bottom = 0.236
-offset_left = -115.96
-offset_top = -12.56
-offset_right = 78.2
-offset_bottom = 92.88
+anchor_left = 0.508
+anchor_top = 0.197
+anchor_right = 0.698
+anchor_bottom = 0.25
+offset_left = -44.64
+offset_top = 9.75998
+offset_right = 8.15997
+offset_bottom = 53.0
 rotation = -0.222664
 
 [node name="CreditsButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.86
-anchor_right = 0.5
-anchor_bottom = 0.86
-offset_left = -92.0
-offset_top = -52.2001
-offset_right = 100.0
-offset_bottom = 115.8
+anchor_left = 0.283
+anchor_top = 0.798
+anchor_right = 0.292
+anchor_bottom = 0.798
+offset_left = -94.64
+offset_top = -77.16
+offset_right = 87.64
+offset_bottom = 90.8401
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0rbiy")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ovkni")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_r5w1d")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_d5774")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x6oxi")
+
+[node name="BellButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.668
+anchor_top = 0.423
+anchor_right = 1.0
+anchor_bottom = 0.608
+offset_left = -0.440063
+offset_top = 0.839966
+theme_override_styles/normal = SubResource("StyleBoxEmpty_42gec")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4d2f1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lijbk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ygoij")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ij4u")
 
 [node name="Credits" type="TextureRect" parent="."]
 visible = false
@@ -326,6 +372,13 @@ text = "CLOSEHERE"
 icon = ExtResource("6_m5sdn")
 expand_icon = true
 
+[node name="Stats" parent="." instance=ExtResource("10_05igu")]
+layout_mode = 1
+anchor_top = 1.0
+anchor_bottom = 2.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="Settings" parent="." instance=ExtResource("5_hgy4u")]
 layout_mode = 1
 hide_quit = true
@@ -340,6 +393,22 @@ bus = &"Effects"
 stream = ExtResource("7_targ4")
 bus = &"Effects"
 
+[node name="PrintSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_q2804")
+volume_db = -12.0
+bus = &"Effects"
+
+[node name="BellSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_jsyec")
+volume_db = -4.0
+bus = &"Effects"
+
+[node name="RipSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_5qym3")
+volume_db = -4.0
+bus = &"Effects"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="credits_open"]
+[connection signal="pressed" from="BellButton" to="." method="_on_bell_button_pressed"]
 [connection signal="pressed" from="Credits/Close" to="." method="credits_close"]

@@ -36,10 +36,10 @@ var origin_rot = -45.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if hide_quit:
-		$Page/Contents/Quit1.visible = false
-		$Page/Contents/Quit2.visible = false
-		$Page/Contents/Quit3.visible = false
-		$Page/Contents/OutOfGame.visible = true
+		%Quit1.visible = false
+		%Quit2.visible = false
+		%Quit3.visible = false
+		%OutOfGame.visible = true
 	setup_languages()
 
 ## Makes the boxes a lil bigger for longer text. Should account for text length changing & languages.
@@ -59,7 +59,7 @@ func setup_languages():
 		button.size_flags_horizontal = 2
 		button.focus_mode = Control.FOCUS_NONE
 		button.icon = circle
-		$Page/Contents/LangLabel/Languages.add_child(button)
+		%LangLabel/Languages.add_child(button)
 		button.pressed.connect(change_language.bind(button.name))
 		
 		if locale == TranslationServer.get_locale().left(2):
@@ -72,16 +72,14 @@ func change_language(new_language):
 	$PaperSound.stream = paper_sounds[0]
 	$PaperSound.play()
 	
-	for child in $Page/Contents/LangLabel/Languages.get_children():
+	for child in %LangLabel/Languages.get_children():
 		child.disabled = false
 		child.icon = circle
 		if child.name == new_language:
 			child.icon = checked
 			child.disabled = true
 	
-	$Page/Contents/MasterLabel/MasterButtons.reset_buttons()
-	$Page/Contents/EffectLabel/EffectButtons.reset_buttons()
-	$Page/Contents/MusicLabel/MusicButtons.reset_buttons()
+	reset_buttons()
 	Global.save_game()
 	
 	TranslationServer.set_locale(new_language)
@@ -91,11 +89,25 @@ func change_language(new_language):
 	set_start_pos()
 	time_vis = 0
 
+## Resets the buttons so it looks like a fresh sheet of paper
+func reset_buttons():
+	%MasterLabel/MasterButtons.reset_buttons()
+	%EffectLabel/EffectButtons.reset_buttons()
+	%MusicLabel/MusicButtons.reset_buttons()
+	%Quit1/No.icon = checked
+	%Quit1/Yes.icon = circle
+	%Quit2/No.icon = checked
+	%Quit2/Yes.icon = circle
+	%Quit3/VolumeButtons.reset_buttons()
+	votes_to_quit = {1:false, 2:false, 3:false}
+
+## Makes and randomizes the slide sound for the sheet entering frame
 func paper_slide():
 	paper_slide_sounds.shuffle()
 	$PaperSlideSound.stream = paper_slide_sounds[0]
 	$PaperSlideSound.play()
 
+## Sets the start position of the paper for it to slide in
 func set_start_pos():
 	paper_slide()
 	$Page.position = Vector2(-2200, randi_range(-1000, 1000))
@@ -140,6 +152,7 @@ func openclose_pressed():
 		get_tree().paused = false
 		$OpenClose.icon = pause
 
+## Pullchain down noise, changes icon
 func _on_open_close_button_down():
 	$OpenClose.icon = down
 	$ClickDown.play()
@@ -160,13 +173,14 @@ func music_vol_changed(value):
 	Global.music_vol = value
 	scribble()
 
+## Scribble noise. Saves unless it's from a quit button.
 func scribble(save = true):
 	if save:
 		Global.save_game()
 	$ScribbleSound.play()
 	$ScribbleSound.seek(randf_range(0.0, 16.0))
-	
 
+## Processes quit button press. Quits the game if all three pressed.
 func on_quit_pressed(number, quitnum):
 	scribble(false)
 	#Add or remove a vote to quit
@@ -212,6 +226,6 @@ func flicker_lights(progress):
 	else:
 		$Blackout.color.a = 0
 
-
+## Ties page visibility to background visibility
 func _on_background_visibility_changed():
-	$Page.visible = !$Page.visible
+	$Page.visible = $Background.visible

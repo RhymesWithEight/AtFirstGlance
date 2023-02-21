@@ -129,6 +129,7 @@ offset_top = 20.0
 offset_right = -20.0
 
 [node name="MasterLabel" type="Label" parent="Page/Contents"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -147,6 +148,7 @@ offset_right = -50.0
 channel = "master"
 
 [node name="EffectLabel" type="Label" parent="Page/Contents"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -166,6 +168,7 @@ offset_right = -50.0
 channel = "effect"
 
 [node name="MusicLabel" type="Label" parent="Page/Contents"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -185,6 +188,7 @@ offset_right = -50.0
 channel = "music"
 
 [node name="LangLabel" type="Label" parent="Page/Contents"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -209,6 +213,7 @@ columns = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="OutOfGame" type="Label" parent="Page/Contents"]
+unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -220,6 +225,7 @@ text = "OUTOFGAME"
 autowrap_mode = 2
 
 [node name="Quit1" type="Label" parent="Page/Contents"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -256,6 +262,7 @@ icon = ExtResource("3_8yoii")
 alignment = 0
 
 [node name="Quit2" type="Label" parent="Page/Contents"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -292,6 +299,7 @@ icon = ExtResource("3_8yoii")
 alignment = 0
 
 [node name="Quit3" type="Label" parent="Page/Contents"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3

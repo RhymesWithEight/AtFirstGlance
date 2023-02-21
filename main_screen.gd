@@ -1,10 +1,23 @@
 extends Control
 
+@export var render_belless : Texture
+@export var pulse_belless : Texture
+
 var start_button
 var booted = false
 var to_start = -1
 var elapsed = 0
 var mod = Color(0,0,0) : set = set_mod
+var printing = 0
+var printing_end
+const printing_moves = [
+	[0.187, 0.457], 
+	[0.617, 1.140], 
+	[1.301, 1.462], 
+	[1.676, 2.170],
+	[2.357, 2.524],
+	[2.741, 3.241],
+	[3.427, 3.706]]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,9 +27,12 @@ func _ready():
 	Music.volume_db = 0
 	get_tree().paused = false
 	booted = true
-	if Global.high_score == 0:
+	if Global.high_score <= 1:
 		$Room/HighScore.visible = false
 		$Room/Score.visible = false
+		$Room.texture = render_belless
+		$ButtonGlow.texture = pulse_belless
+		$BellButton.disabled = true
 	else:
 		$Room/Score.text = str(Global.high_score)
 
@@ -49,7 +65,34 @@ func _process(delta):
 		if !$LightBuzz.playing:
 			$LightBuzz.play()
 	else:
+		pulse_glow(delta)
 		mod = Color(1,1,1)
+	
+	if printing > 0:
+		var elapsed = 5 - printing
+		for range in printing_moves:
+			if elapsed > range[0] and elapsed < range[1]:
+				$Stats.anchor_top -= delta * 0.2
+		printing -= delta
+		if elapsed > 4.0:
+			$Stats.anchor_top = clamp($Stats.anchor_top - delta * 0.8, 0, 1)
+			if elapsed > 5:
+				$Stats.anchor_top = 0
+			if $Stats.anchor_top == 0:
+				printing = 0
+				$PrintSound.stop()
+				$Stats.draggable = true
+				$RipSound.play()
+
+func pulse_glow(delta):
+	if $ButtonGlow.modulate.g == 0:
+		$ButtonGlow.modulate.a += delta / 3
+		if $ButtonGlow.modulate.a >= 1:
+			$ButtonGlow.modulate.g = 1
+	else:
+		$ButtonGlow.modulate.a -= delta / 3
+		if $ButtonGlow.modulate.a <= 0:
+			$ButtonGlow.modulate.g = 0
 
 func _on_button_pressed():
 	$ButtonSound.play()
@@ -58,6 +101,9 @@ func _on_button_pressed():
 
 func set_mod(new_mod):
 	$Room.modulate = new_mod
+	$Stats.modulate = new_mod
+	if to_start > 0:
+		$ButtonGlow.modulate.a = pow(new_mod.r, 0.2)
 	mod = new_mod
 
 func credits_close():
@@ -65,3 +111,13 @@ func credits_close():
 
 func credits_open():
 	$Credits.visible = true
+
+
+
+func _on_bell_button_pressed():
+	if printing == 0:
+		$Stats.draggable = false
+		$BellSound.play()
+		$BellSound.seek(0.3)
+		printing = 5
+		$PrintSound.play()

@@ -44,8 +44,6 @@ var saveable = [
 	"challenge_errors"
 	]
 
-
-
 func set_saveable(variable : String, new_val):
 	set(variable, new_val)
 	if !saved:
@@ -92,6 +90,9 @@ func _ready():
 
 func play_new_music():
 	var options = music.duplicate()
+	if music.size() == played.size():
+		played.clear()
+	
 	for exception in played:
 		options.erase(exception)
 	
@@ -147,7 +148,7 @@ func get_date():
 
 ## Creates a log of a guess error
 func log_error(node_name : String, error : float):
-	var chal_name = node_name.rstrip("Challenge")
+	var chal_name = node_name.trim_suffix("Challenge")
 	
 	if challenge_errors.has(chal_name):
 		challenge_errors[chal_name].push_back(error)

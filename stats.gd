@@ -14,8 +14,7 @@ func _ready():
 
 func create_challenges():
 	for challenge in Global.challenge_errors:
-		print(challenge)
-		create_label(challenge)
+		create_label("REP" + challenge.to_upper())
 
 func create_num_times():
 	create_label("NUMCHALLENGE", true)
@@ -82,6 +81,7 @@ func _on_gui_input(event):
 			if !event.pressed:
 				if anchor_top > 0.3:
 					anchor_top = 1
+					rotation = 0
 				else:
 					anchor_top = 0
 		

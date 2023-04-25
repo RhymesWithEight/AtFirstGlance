@@ -15,6 +15,7 @@ config/description="A game of quick visual estimation."
 run/main_scene="res://main_screen.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
+config/quit_on_go_back=false
 
 [autoload]
 
@@ -37,7 +38,7 @@ pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Translations/translations.en.translation", "res://Translations/translations.es.translation", "res://Translations/translations.fr.translation", "res://Translations/translations.ja.translation", "res://Translations/translations.de.translation")
+locale/translations=PackedStringArray("res://Translations/translations.en.translation", "res://Translations/translations.ja.translation")
 
 [rendering]
 

@@ -19,6 +19,18 @@ var error_num = 0 : get = get_error_num
 var prev_background_color = Color(0,0,0)
 var next_background_color = Color(0,0,0)
 
+var text_sizes = {
+	"ja" : 65,
+	"en" : 80,
+	"es" : 80,
+	"de" : 80,
+	"fr" : 80
+}
+
+func _notification(what):
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		$Settings.openclose_pressed()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var image = Image.create(1000, 1000, true, Image.FORMAT_RGB8)
@@ -181,6 +193,8 @@ func create_challengecard():
 	new_challenge.position = Vector2(0,0)
 	challenge = new_challenge
 	$QuestionBox/Question.text = challenge.question_text
+	$QuestionBox/Question.remove_theme_font_size_override("text_size")
+	$QuestionBox/Question.add_theme_font_size_override("font_size", text_sizes[Global.lang.left(2)])
 	$QuestionBox.self_modulate = challenge.question_color
 	$QuestionBox.modulate.a = 0
 	prev_background_color = next_background_color
@@ -339,6 +353,13 @@ func _unhandled_input(event):
 		if new_locale is float:
 			if !(event.position.x > 955 and event.position.y < 225 and event.position.y > 100):
 				guess = new_locale
+
+## Quitting through settings
+func quit():
+	if score >= Global.high_score:
+		Global.set_saveable("high_score", score)
+		Global.set_saveable("high_score_date", Global.date)
+	lose()
 
 ## Brings you back to the main screen.
 func lose():

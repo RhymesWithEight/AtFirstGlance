@@ -1,5 +1,7 @@
 extends Node
 
+signal lang_changed
+
 var music_vol = 100 : set = change_music_vol
 var effect_vol = 100 : set = change_effect_vol
 var master_vol = 100 : set = change_master_vol
@@ -10,6 +12,7 @@ var current_score_date
 var resolution : get = get_resolution
 var date : get = get_date
 var tutorial = false
+var lang = "en" : set = change_lang
 
 ## An array of errors for each challenge, for stats purposes.
 var challenge_errors = {} 
@@ -41,8 +44,10 @@ var saveable = [
 	"high_score_date",
 	"current_score",
 	"current_score_date",
-	"challenge_errors"
+	"challenge_errors",
+	"lang"
 	]
+
 
 func set_saveable(variable : String, new_val):
 	set(variable, new_val)
@@ -112,6 +117,12 @@ func _process(_delta):
 	if saved:
 		saved = false
 
+func change_lang(new_lang):
+	TranslationServer.set_locale(new_lang)
+	lang = new_lang
+	lang_changed.emit(new_lang)
+	save_game()
+
 func generate_colors(num_colors):
 	var color_picks = []
 	var available = palette_centers.duplicate()
@@ -152,13 +163,10 @@ func log_error(node_name : String, error : float):
 	
 	if challenge_errors.has(chal_name):
 		challenge_errors[chal_name].push_back(error)
-		if challenge_errors[chal_name].size() > 40:
-			challenge_errors[chal_name].remove_at(0)
 	else:
 		challenge_errors[chal_name] = [error]
 
 func save_game():
-	print("saving...")
 	var save = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	
 	var dict = {}
@@ -175,3 +183,5 @@ func load_game():
 		var dict = JSON.parse_string(json_string)
 		for v in dict:
 			set(v, dict[v])
+	else:
+		lang = OS.get_locale().left(2)

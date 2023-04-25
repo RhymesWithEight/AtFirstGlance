@@ -66,12 +66,18 @@ expand_mode = 4
 stretch_mode = 6
 
 [node name="Page" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = -2200.0
-offset_top = 1000.0
-offset_right = -1120.0
-offset_bottom = 2920.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2740.0
+offset_top = 241.6
+offset_right = -1660.0
+offset_bottom = 1000.0
+grow_horizontal = 2
+grow_vertical = 2
 rotation = -0.785398
 texture = ExtResource("14_ej2b3")
 
@@ -88,18 +94,23 @@ vertical_alignment = 1
 [node name="WaffleTop" type="Label" parent="Page"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.04
-anchor_right = 1.0
-anchor_bottom = 0.1
+anchor_left = 0.5
+anchor_top = 0.074
+anchor_right = 0.5
+anchor_bottom = 0.074
+offset_left = -458.0
+offset_top = -71.08
+offset_right = 530.0
+offset_bottom = 78.92
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("3_mvep4")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 23
 text = "SETTOP"
-horizontal_alignment = 3
-autowrap_mode = 2
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Start" type="Label" parent="Page"]
 layout_mode = 1
@@ -107,9 +118,11 @@ anchors_preset = -1
 anchor_left = 0.28
 anchor_top = 0.12
 anchor_right = 0.73
-anchor_bottom = 0.12
-offset_top = 0.823883
-offset_bottom = 44.8239
+anchor_bottom = 0.146
+offset_left = -0.399994
+offset_top = -5.39999
+offset_right = -0.400024
+offset_bottom = 7.67996
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("3_mvep4")
@@ -212,17 +225,54 @@ theme_override_constants/v_separation = 20
 columns = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="TutorialLabel" type="Label" parent="Page/Contents"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("3_mvep4")
+text = "TUTORIALQUESTION"
+
+[node name="Yes" type="Button" parent="Page/Contents/TutorialLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 50.0001
+offset_top = -100.0
+offset_right = 0.00012207
+theme = ExtResource("3_mvep4")
+text = "YES"
+icon = ExtResource("2_mnv1k")
+alignment = 0
+
+[node name="No" type="Button" parent="Page/Contents/TutorialLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0001
+offset_top = -100.0
+offset_right = 0.00012207
+theme = ExtResource("3_mvep4")
+text = "NO"
+icon = ExtResource("3_8yoii")
+alignment = 0
+
 [node name="OutOfGame" type="Label" parent="Page/Contents"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 3
 theme = ExtResource("3_mvep4")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 23
 text = "OUTOFGAME"
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="Quit1" type="Label" parent="Page/Contents"]
 unique_name_in_owner = true
@@ -243,7 +293,7 @@ anchor_bottom = 1.0
 offset_left = 50.0
 offset_top = -100.0
 theme = ExtResource("3_mvep4")
-text = " Yes"
+text = "YES"
 icon = ExtResource("2_mnv1k")
 alignment = 0
 
@@ -257,7 +307,7 @@ anchor_bottom = 1.0
 offset_left = 50.0
 offset_top = -100.0
 theme = ExtResource("3_mvep4")
-text = " No"
+text = "NO"
 icon = ExtResource("3_8yoii")
 alignment = 0
 
@@ -280,7 +330,7 @@ anchor_bottom = 1.0
 offset_left = 50.0
 offset_top = -100.0
 theme = ExtResource("3_mvep4")
-text = " Yes"
+text = "YES"
 icon = ExtResource("2_mnv1k")
 alignment = 0
 
@@ -294,7 +344,7 @@ anchor_bottom = 1.0
 offset_left = 50.0
 offset_top = -100.0
 theme = ExtResource("3_mvep4")
-text = " Yes"
+text = "NO"
 icon = ExtResource("3_8yoii")
 alignment = 0
 
@@ -356,6 +406,7 @@ volume_db = -4.0
 
 [node name="ScribbleSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_844gn")
+volume_db = 6.0
 
 [node name="PaperSound" type="AudioStreamPlayer" parent="."]
 
@@ -366,6 +417,8 @@ volume_db = -4.0
 [connection signal="volume" from="Page/Contents/MasterLabel/MasterButtons" to="." method="master_vol_changed"]
 [connection signal="volume" from="Page/Contents/EffectLabel/EffectButtons" to="." method="effect_vol_changed"]
 [connection signal="volume" from="Page/Contents/MusicLabel/MusicButtons" to="." method="music_vol_changed"]
+[connection signal="pressed" from="Page/Contents/TutorialLabel/Yes" to="." method="tutorial_pressed" binds= [true]]
+[connection signal="pressed" from="Page/Contents/TutorialLabel/No" to="." method="tutorial_pressed" binds= [false]]
 [connection signal="pressed" from="Page/Contents/Quit1/Yes" to="." method="on_quit_pressed" binds= [100, 1]]
 [connection signal="pressed" from="Page/Contents/Quit1/No" to="." method="on_quit_pressed" binds= [0, 1]]
 [connection signal="pressed" from="Page/Contents/Quit2/Yes" to="." method="on_quit_pressed" binds= [100, 2]]

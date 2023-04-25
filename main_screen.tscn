@@ -233,14 +233,13 @@ grow_vertical = 2
 [node name="WhoHelped" type="Label" parent="Credits"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.1
-anchor_right = 0.5
-anchor_bottom = 0.1
-offset_left = -175.5
-offset_top = 309.0
-offset_right = 183.5
-offset_bottom = 397.0
+anchor_top = 0.261
+anchor_right = 1.0
+anchor_bottom = 0.307
+offset_left = 364.5
+offset_top = -0.120026
+offset_right = -356.5
+offset_bottom = -0.440002
 grow_horizontal = 2
 theme = ExtResource("4_v1t4b")
 text = "WHOHELPED"
@@ -248,13 +247,13 @@ text = "WHOHELPED"
 [node name="Opener" type="Label" parent="Credits"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.15
+anchor_top = 0.311
 anchor_right = 1.0
-anchor_bottom = 0.3
+anchor_bottom = 0.434
 offset_left = 104.0
-offset_top = 309.0
+offset_top = -0.120056
 offset_right = -96.0
-offset_bottom = 258.0
+offset_bottom = 0.719971
 theme = ExtResource("4_v1t4b")
 theme_override_font_sizes/font_size = 45
 text = "CREDITSOPEN"
@@ -265,44 +264,58 @@ autowrap_mode = 2
 [node name="Translators" type="Label" parent="Credits"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.3
+anchor_top = 0.444
 anchor_right = 1.0
-anchor_bottom = 0.3
+anchor_bottom = 0.49
 offset_left = 100.0
-offset_top = 277.0
+offset_top = 0.519958
 offset_right = -100.0
-offset_bottom = 365.0
+offset_bottom = 0.199951
 theme = ExtResource("4_v1t4b")
 text = "TRANSLATORS"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="TranslatorsList" type="Label" parent="Credits"]
+[node name="TranslatorsList" type="GridContainer" parent="Credits"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.35
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.55
+anchor_bottom = 0.5
 offset_left = 100.0
-offset_top = 277.0
 offset_right = -100.0
-offset_bottom = 188.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Robert" type="Label" parent="Credits/TranslatorsList"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("4_v1t4b")
 theme_override_font_sizes/font_size = 45
+text = "Robert Jones - 日本語"
 horizontal_alignment = 1
-vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="RobertLink" type="LinkButton" parent="Credits/TranslatorsList/Robert"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+uri = "https://www.robjones.dev/"
 
 [node name="Assets" type="Label" parent="Credits"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.55
+anchor_top = 0.658
 anchor_right = 1.0
-anchor_bottom = 0.55
+anchor_bottom = 0.704
 offset_left = 100.0
-offset_top = 207.0
+offset_top = -0.360107
 offset_right = -100.0
-offset_bottom = 295.0
+offset_bottom = -0.680054
 theme = ExtResource("4_v1t4b")
 text = "ASSETS"
 horizontal_alignment = 1
@@ -311,13 +324,13 @@ autowrap_mode = 2
 [node name="AssetList1" type="Label" parent="Credits"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.6
+anchor_top = 0.708
 anchor_right = 1.0
-anchor_bottom = 0.6
+anchor_bottom = 0.743
 offset_left = 100.0
-offset_top = 207.0
+offset_top = -0.359985
 offset_right = -100.0
-offset_bottom = 274.0
+offset_bottom = -0.560059
 theme = ExtResource("4_v1t4b")
 theme_override_font_sizes/font_size = 45
 text = "ASSETLIST1"
@@ -327,13 +340,13 @@ autowrap_mode = 2
 [node name="AssetList2" type="Label" parent="Credits"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.65
+anchor_top = 0.758
 anchor_right = 1.0
-anchor_bottom = 0.65
+anchor_bottom = 0.836
 offset_left = 100.0
-offset_top = 207.0
+offset_top = -0.359985
 offset_right = -100.0
-offset_bottom = 357.0
+offset_bottom = -0.119995
 theme = ExtResource("4_v1t4b")
 theme_override_font_sizes/font_size = 45
 text = "ASSETLIST2"
@@ -343,13 +356,13 @@ autowrap_mode = 2
 [node name="AssetList3" type="Label" parent="Credits"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.75
+anchor_top = 0.858
 anchor_right = 1.0
-anchor_bottom = 0.75
+anchor_bottom = 0.893
 offset_left = 100.0
-offset_top = 207.0
+offset_top = -0.360107
 offset_right = -100.0
-offset_bottom = 274.0
+offset_bottom = -0.560181
 theme = ExtResource("4_v1t4b")
 theme_override_font_sizes/font_size = 45
 text = "ASSETLIST3"
@@ -374,6 +387,7 @@ expand_icon = true
 
 [node name="Stats" parent="." instance=ExtResource("10_05igu")]
 layout_mode = 1
+anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 2.0
 grow_horizontal = 1
@@ -395,7 +409,7 @@ bus = &"Effects"
 
 [node name="PrintSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_q2804")
-volume_db = -12.0
+volume_db = -18.0
 bus = &"Effects"
 
 [node name="BellSound" type="AudioStreamPlayer" parent="."]

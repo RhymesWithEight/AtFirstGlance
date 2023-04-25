@@ -10,6 +10,7 @@ var elapsed = 0
 var mod = Color(0,0,0) : set = set_mod
 var printing = 0
 var printing_end
+var ripped = false
 const printing_moves = [
 	[0.187, 0.457], 
 	[0.617, 1.140], 
@@ -18,6 +19,13 @@ const printing_moves = [
 	[2.357, 2.524],
 	[2.741, 3.241],
 	[3.427, 3.706]]
+
+func _notification(what):
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if !$Credits.visible and $Stats.anchor_top == 1:
+			$Settings.openclose_pressed()
+		credits_close()
+		$Stats.anchor_top = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -75,14 +83,22 @@ func _process(delta):
 				$Stats.anchor_top -= delta * 0.2
 		printing -= delta
 		if elapsed > 4.0:
+			if !$RipSound.playing:
+				if !ripped:
+					$RipSound.play()
+					ripped = true
+			else:
+				var past = elapsed - 4
+				$Stats.rotation_degrees = pow(4*past, 3)
+		if elapsed > 4.3:
 			$Stats.anchor_top = clamp($Stats.anchor_top - delta * 0.8, 0, 1)
-			if elapsed > 5:
+			if elapsed >= 5:
 				$Stats.anchor_top = 0
 			if $Stats.anchor_top == 0:
 				printing = 0
 				$PrintSound.stop()
+				ripped = false
 				$Stats.draggable = true
-				$RipSound.play()
 
 func pulse_glow(delta):
 	if $ButtonGlow.modulate.g == 0:

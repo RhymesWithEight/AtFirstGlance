@@ -25,21 +25,43 @@ const box_sizes = {
 	"EffectLabel": 150, 
 	"MusicLabel": 150,
 	"LangLabel": 250,
+	"TutorialLabel": 100,
 	"OutOfGame": 0,
 	"Quit1": 100,
 	"Quit2": 100,
 	"Quit3": 150}
+var text_nodes = [
+	"Admin", 
+	"WaffleTop", 
+	"Start", 
+	"MasterLabel",
+	"EffectLabel", 
+	"MusicLabel", 
+	"LangLabel",
+	"TutorialLabel",
+	"OutOfGame", 
+	"Quit1", 
+	"Quit2", 
+	"Quit3"
+]
+
 var time_vis = 0.0
 var origin_pos = Vector2(-2200.0, 1000.0)
 var origin_rot = -45.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	if hide_quit:
 		%Quit1.visible = false
 		%Quit2.visible = false
 		%Quit3.visible = false
 		%OutOfGame.visible = true
+		%TutorialLabel.visible = true
+	# Adjusts the starting checkmarks of the tutorial buttons
+	if Global.tutorial:
+		%TutorialLabel/Yes.icon = checked
+		%TutorialLabel/No.icon = circle
 	setup_languages()
 
 ## Makes the boxes a lil bigger for longer text. Should account for text length changing & languages.
@@ -79,11 +101,10 @@ func change_language(new_language):
 			child.icon = checked
 			child.disabled = true
 	
+	Global.lang = new_language
 	reset_buttons()
-	Global.save_game()
+	adjust_lines()
 	
-	TranslationServer.set_locale(new_language)
-	print("changing language")
 	$Blackout.color.a = 1
 	await $PaperSound.finished
 	set_start_pos()
@@ -99,6 +120,12 @@ func reset_buttons():
 	%Quit2/No.icon = checked
 	%Quit2/Yes.icon = circle
 	%Quit3/VolumeButtons.reset_buttons()
+	if Global.tutorial:
+		%TutorialLabel/Yes.icon = checked
+		%TutorialLabel/No.icon = circle
+	else:
+		%TutorialLabel/Yes.icon = circle
+		%TutorialLabel/No.icon = checked
 	votes_to_quit = {1:false, 2:false, 3:false}
 
 ## Makes and randomizes the slide sound for the sheet entering frame
@@ -226,6 +253,27 @@ func flicker_lights(progress):
 	else:
 		$Blackout.color.a = 0
 
+func change_icons(group, pressed):
+	for button in group:
+		if button.icon == checked:
+			button.icon = smudged
+	
+	pressed.icon = checked
+
 ## Ties page visibility to background visibility
 func _on_background_visibility_changed():
 	$Page.visible = $Background.visible
+
+func tutorial_pressed(b):
+	var yes = $Page/Contents/TutorialLabel/Yes
+	var no = $Page/Contents/TutorialLabel/No
+	scribble(false)
+	if b:
+		if !Global.tutorial:
+			no.icon = smudged
+		Global.tutorial = true
+		change_icons([yes,no], yes)
+	else:
+		Global.tutorial = false
+		change_icons([yes, no], no)
+

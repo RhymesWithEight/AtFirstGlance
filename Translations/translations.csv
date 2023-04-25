@@ -1,73 +1,77 @@
-keys,en,fr,es,de,ja
-HIGHSCORE,High Score,Record,,,
-,,,,,
-,,,,,
-ADMIN,THIS SPACE FOR ADMINISTRATIVE USE ONLY,CET ESPACE A USAGE ADMINISTRATIF UNIQUEMENT,,,
-MASTER,What percent of max volume do you prefer overall?,,,,
-EFFECT,What percent of max volume do you prefer for effects?,,,,
-MUSIC,What percent of max volume do you prefer for music?,,,,
-SETTOP,"This survey exists to maximize the valuable data the organization obtains from your performance. While its prompt completion is not necessary for the evaluation of your performance (and data thereof), its completion will be considered favorable on review. Thank you for your cooperation.",,,,
-STARTHERE,START    HERE,,,,
-LANG,Which of the following languages do you prefer to use?,,,,
-QUIT1,Would you like to end the examination?,,,,
-QUIT2,Would you like the examination to end within the next ten seconds?,,,,
-QUIT3,How badly do you want to end the exam?,,,,
-OUTOFGAME,This version of the survey exists only for pre-examination purposes. This means that completing this examination in full prior to the start of the examination is important to appropriate evaluation of its results; completing this version of the survey during or after the beginning of the examination renders its results moot.,,,,
-,,,,,
-AREAQ,How much of the area is this color?,Quelle partie de la zone est de cette couleur,,,
-,,,,,
-LIGHTSQ,What percent of the lights are {LIT_OR_NOT}?,Quel pourcentage de lumières {LIT_OR_NOT}?,,,
-LIT,lit,sont allumées,,,
-NOTLIT,not lit,ne sont pas allumées,,,
-,,,,,
-ANIMALSQ,What percent of the animals are {ANIMAL}?,Quel pourcentage des animaux sont des ,,,
-GIRAFFES,giraffes,girafes,,,
-ELEPHANTS,elephants,éléphants ,,,
-GAZELLES,gazelles,gazelles ,,,
-LIONS,lions,lions,,,
-OSTRICHES,ostriches,autruches ,,,
-,,,,,
-WATERQ,How full do the blue circles make the empty one?,Dans quelle mesure les cercles bleus remplissent-ils le vide ? ,,,
-,,,,,
-GRIDQ,What percent of the blocks are this color?,Quel pourcentage des blocs sont de cette couleur ? ,,,
-,,,,,
-NEWHIGHSCORE,New high score!,Nouveau record! ,,,
-HIGHESTSCORE,Highest score:,Record: ,,,
-SCORE,Score: ,Score: ,,,
-,,,,,
-English,English,Anglais,,,
-French,French,Français,,,
-Spanish,Spanish,,Español,,
-German,German,Allemand,,Deutsch ,
-Japanese,Japanese,Japonais,,,日本
-,,,,,
-WHOMADE,At First Glance is a game made by Brandon Fecht with Godot,,,,
-CONNECTLINK,Connect with me by tapping here. See what I’m up to!,,,,
-WHOHELPED,Who helped:,,,,
-CREDITSOPEN,"My loving partner James and my great friend Teddy, both of whom gave incredible advice along the way.",,,,
-TRANSLATORS,Translators:,,,,
-ASSETS,Various assets:,,,,
-ASSETLIST1,Music from Kevin MacLeod,,,,
-ASSETLIST2,"Fonts from KineticPlasma, Jayvee Enaguas, and Kimberly Geswein",,,,
-ASSETLIST3,Many other assets from Pixabay,,,,
-CLOSEHERE,Close here,,,,
-,,,,,
-TUTSCORE,Current score,,,,
-TUTTIME,Remaining time,,,,
-TUTSETTINGS,Settings. Pauses the game.,,,,
-TUTQUESTION,You’ll need to answer this question by tapping somewhere between 0% and 100%. You can change your answer until the time is up. Try it now to close this tutorial!,,,,
-TUTSLIDE,This contains the info you need to answer the question,,,,
-TUTERROR,Your total error will be displayed here. Game over at 100%!,,,,
-,,,,,
-REPTOP,REPORT OF PERFORMANCE,,,,
-REPTYPE,TYPE,,,,
-REPANIMAL,ANIMAL,,,,
-REPAREA,AREA,,,,
-REPGRID,GRID,,,,
-REPLIGHTS,LIGHTS,,,,
-REPWATER,WATER,,,,
-AVGERROR,AVERAGE ERROR,,,,
-PERCENTABV,PERCENT ABOVE,,,,
-PERCENTBEL,PERCENT BELOW,,,,
-NUMCHALLENGE,NUMBER OF TIMES,,,,
-REPBTM,PAPER DRAGGED DOWN WILL BE DISCARDED,,,,
+keys,en,fr,es,ja
+HIGHSCORE,High Score,Record,,ハイスコア
+,,,,
+,,,,
+ADMIN,THIS SPACE FOR ADMINISTRATIVE USE ONLY,CET ESPACE A USAGE ADMINISTRATIF UNIQUEMENT,este espacio solamente para uso administrativo,このスペースは管理者用のみです
+MASTER,What percent of max volume do you prefer overall?,,,最大音量は何パーセントにしますか？
+EFFECT,What percent of max volume do you prefer for effects?,,,最大エフエックス音量は何パーセントにしますか？
+MUSIC,What percent of max volume do you prefer for music?,,,最大音楽量は何パーセントにしますか？
+SETTOP,"This survey exists to maximize the valuable data the organization obtains from your performance. While its prompt completion is not necessary for the evaluation of your performance (and data thereof), its completion will be considered favorable on review. Thank you for your cooperation.",,,この受験はプレイヤーからの情報を最大に評価し、貴重なデータにするためのゲームです。なお、ゲームを完成するのは必要ありません。クリヤーしなくてもプレイヤーのパフォーマンス「およびそのデータ」は評価されます。しかし完成した場合はリビューの時に有用な情報となります。ご協力をお願いします。
+STARTHERE,START HERE,,,試験開始
+LANG,Which of the following languages do you prefer to use?,,,使用言語を選択してください。
+QUIT1,Would you like to end the examination?,,,試験を終了しますか？
+QUIT2,Would you like the examination to end within the next ten seconds?,,,十秒以内に試験を終了しますか？？
+QUIT3,How badly do you want to end the exam?,,,試験はどれだけ終わらせたいか？
+OUTOFGAME,This version of the survey exists only for pre-examination purposes. This means that completing this examination in full prior to the start of the examination is important to appropriate evaluation of its results; completing this version of the survey during or after the beginning of the examination renders its results moot.,,,このバージョンの調査は、受験前の為のみ存在します。 受験の開始前にこの調査を完成すること、その結果を適切に評価するために重要であることになります。 受験の開始中または開始後にこのバージョンの調査を完成すると、その結果は無効となります。
+TUTORIALQUESTION,Would you like to review the tutorial?,,,チュートリアルを再確認しますか？
+,,,,
+AREAQ,How much of the area is this color?,Quelle partie de la zone est de cette couleur,,この色はどの程度の面積なのでしょうか？
+,,,,
+LIGHTSQ,What percent of the lights are {LIT_OR_NOT}?,Quel pourcentage de lumières {LIT_OR_NOT}?,,電球が何割{LIT_OR_NOT}でしょうか？
+LIT,lit,sont allumées,,ついてる
+NOTLIT,not lit,ne sont pas allumées,,ついてない
+,,,,
+ANIMALSQ,What percent of the animals are {ANIMAL}?,Quel pourcentage des animaux sont des,,動物の何割が{ANIMAL}でしょうか？
+GIRAFFES,giraffes,girafes,,キリン
+ELEPHANTS,elephants,éléphants,elephantes ,ゾウ
+GAZELLES,gazelles,gazelles,,ガゼル
+LIONS,lions,lions,leon,ライオン
+OSTRICHES,ostriches,autruches,,ダチョウ
+,,,,
+WATERQ,How full do the blue circles make the empty one?,Dans quelle mesure les cercles bleus remplissent-ils le vide ?,,青い丸は、空の丸をどれだけ埋めるのでしょうか？
+,,,,
+GRIDQ,What percent of the blocks are this color?,Quel pourcentage des blocs sont de cette couleur ?,,この色のブロックは何割でしょうか？
+,,,,
+NEWHIGHSCORE,New high score!,Nouveau record!,,新ハイスコア
+HIGHESTSCORE,Highest score:,Record:,,ハイスコア
+SCORE,Score:,Score:,,スコア
+,,,,
+English,English,Anglais,ingles,英語
+French,French,Français,,フランス語
+Spanish,Spanish,,Español,スペイン語
+German,German,Allemand,,ドイツ語
+Japanese,Japanese,Japonais,japones,日本語
+,,,,
+WHOMADE,At First Glance is a game made by Brandon Fecht with Godot,,A La Primera Mirada es un juego hecho por Brandon Fecht usando Godot,At First Glanceの開発者はBrandon Fechtです。Godotを使用して開発しました。
+CONNECTLINK,Connect with me by tapping here. See what I’m up to!,,Oprima aqui para conectar conmigo. Ve lo que estoy haciendo,ご連絡はこちら！
+WHOHELPED,Who helped:,,Quienes ayudaron ,手助け:
+CREDITSOPEN,"My loving partner James and my great friend Teddy, both of whom gave incredible advice along the way.",,"Mi pareja James y mi mejor amigo Teddy, ",素晴らしい相談は愛しいパートナJamesと友人Teddyからもらいました。
+TRANSLATORS,Translators:,,,翻訳者:
+ASSETS,Various assets:,,,いろんな資産:
+ASSETLIST1,Music from Kevin MacLeod,,Musica por Kevin MacLeod,音楽: Kevin MacLeod
+ASSETLIST2,"Fonts from KineticPlasma, Kimberly Geswein, and Fontworks Inc.",,,"字体: KineticPlasma, Kimberly Geswein, and Fontworks Inc"
+ASSETLIST3,Many other assets from Pixabay,,,その他の資産: Pixabay
+CLOSEHERE,Close here,,cerra aqui,ここで閉じます。
+,,,,
+TUTSCORE,Current score,,,現在のスコア
+TUTTIME,Remaining time,,,残り時間
+TUTSETTINGS,Settings. Pauses the game.,,,設定。ゲームを一時停止する。
+TUTQUESTION,You’ll need to answer this question by tapping somewhere between 0% and 100%. You can change your answer until the time is up. Try it now to close this tutorial!,,,この問題を答えるには、画面の0%と100%の間でタップしないといけません。タイムアップまでに答えが変えられます。チュートリアルを閉じて、やってみます！
+TUTSLIDE,This contains the info you need to answer the question,,,質問に答えるために必要な情報がこちらに含まれています。
+TUTERROR,Your total error will be displayed here. Game over at 100%!,,,トータルの誤算エラーはこちらに表示されます。100%を超えるとゲームオーバーです！
+,,,,
+REPTOP,REPORT OF PERFORMANCE,,,パフォーマンスリポート
+REPTYPE,TYPE,,,タイプ
+REPANIMAL,ANIMALS,,,動物
+REPAREA,AREA,,,エリア
+REPGRID,GRID,,,グリッド
+REPLIGHTS,LIGHTS,,,電球
+REPWATER,WATER,,,水
+AVGERROR,AVERAGE ERROR,,,平均エラー
+PERCENTABV,PERCENT ABOVE,,,パーセント以上
+PERCENTBEL,PERCENT BELOW,,,パーセント以下
+NUMCHALLENGE,NUMBER OF TIMES,,,回数
+REPBTM,PAPER DRAGGED DOWN WILL BE DISCARDED,,,下にドラッグされた紙は破棄されます
+,,,,
+YES, Yes,,, はい
+NO, No,,, いいえ

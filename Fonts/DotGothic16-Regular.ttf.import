@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://deiri6nbvlfa8"
-path="res://.godot/imported/PixelOperator.ttf-96db80298d65bbb9798b25992775783a.fontdata"
+uid="uid://dim8y36rll31f"
+path="res://.godot/imported/DotGothic16-Regular.ttf-05b5fc048d6091dc7c0f2bdb05747764.fontdata"
 
 [deps]
 
-source_file="res://Fonts/PixelOperator.ttf"
-dest_files=["res://.godot/imported/PixelOperator.ttf-96db80298d65bbb9798b25992775783a.fontdata"]
+source_file="res://Fonts/DotGothic16-Regular.ttf"
+dest_files=["res://.godot/imported/DotGothic16-Regular.ttf-05b5fc048d6091dc7c0f2bdb05747764.fontdata"]
 
 [params]
 

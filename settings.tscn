@@ -407,6 +407,7 @@ volume_db = -4.0
 [node name="ScribbleSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_844gn")
 volume_db = 6.0
+bus = &"Effects"
 
 [node name="PaperSound" type="AudioStreamPlayer" parent="."]
 

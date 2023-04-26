@@ -73,5 +73,5 @@ PERCENTBEL,PERCENT BELOW,,,パーセント以下
 NUMCHALLENGE,NUMBER OF TIMES,,,回数
 REPBTM,PAPER DRAGGED DOWN WILL BE DISCARDED,,,下にドラッグされた紙は破棄されます
 ,,,,
-YES, Yes,,, はい
-NO, No,,, いいえ
+YES,Yes,,,はい
+NO,No,,,いいえ

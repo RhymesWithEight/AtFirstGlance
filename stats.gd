@@ -12,10 +12,12 @@ func _ready():
 	create_percent_abv()
 	create_percent_bel()
 
+## Adds challenge titles
 func create_challenges():
 	for challenge in Global.challenge_errors:
 		create_label("REP" + challenge.to_upper())
 
+## Adds number of times a challenge was tried
 func create_num_times():
 	create_label("NUMCHALLENGE", true)
 	for challenge in Global.challenge_errors:
@@ -23,6 +25,7 @@ func create_num_times():
 		var tries = errors.size()
 		create_label(str(tries))
 
+## Adds average error for each challenge
 func create_avg_error():
 	create_label("AVGERROR", true)
 	for challenge in Global.challenge_errors:
@@ -33,6 +36,7 @@ func create_avg_error():
 		var avg = abs_total / errors.size()
 		create_label(str(int(avg)) + "%")
 
+## Adds the percent of times a guess was below the actual for each challenge
 func create_percent_bel():
 	create_label("PERCENTBEL", true)
 	for challenge in Global.challenge_errors:
@@ -45,6 +49,7 @@ func create_percent_bel():
 		var per = num / errors.size()
 		create_label(str(int(per * 100)) + "%")
 
+## Adds the percent of times a guess was above the actual for each challenge
 func create_percent_abv():
 	create_label("PERCENTABV", true)
 	for challenge in Global.challenge_errors:
@@ -57,6 +62,7 @@ func create_percent_abv():
 		var per = num / errors.size()
 		create_label(str(int(per * 100)) + "%")
 
+## General label creator
 func create_label(text: String, wraps = false):
 	var label = Label.new()
 	label.theme = t
@@ -72,6 +78,7 @@ func create_label(text: String, wraps = false):
 func _process(_delta):
 	anchor_bottom = anchor_top + 1
 
+## Allows draggability
 func _on_gui_input(event):
 	if draggable:
 		if event is InputEventScreenDrag:

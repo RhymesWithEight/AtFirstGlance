@@ -27,6 +27,7 @@ var text_sizes = {
 	"fr" : 80
 }
 
+## Make back requests close/open appropriate menus
 func _notification(what):
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		$Settings.openclose_pressed()

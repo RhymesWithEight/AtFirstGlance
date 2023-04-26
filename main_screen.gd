@@ -20,6 +20,7 @@ const printing_moves = [
 	[2.741, 3.241],
 	[3.427, 3.706]]
 
+## Make back requests close/open appropriate menus
 func _notification(what):
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		if !$Credits.visible and $Stats.anchor_top == 1:
@@ -52,47 +53,59 @@ func start_game():
 func _process(delta):
 	elapsed += delta
 	if to_start > 0:
-		to_start -= delta
-		if to_start <= 0:
-			start_game()
-		var c = pow(to_start, 15)
-		mod = Color(c, c, c)
-		$LightBuzz.stop()
+		boot_game(delta)
 	elif elapsed < 1:
-		var dip_a = randf_range(0, 1)
-		var dip_b = randf_range(0, 1)
-		var threshold = 0.7
-		var a = 1 - 1 / (1 + 100 * pow(elapsed - dip_a, 2))
-		var b = 1 - 1 / (1 + 100 * pow(elapsed - dip_b, 2))
-		if a * b > threshold:
-			var c = a * b * pow(elapsed, 3) * 0.5
-			mod = Color(c,c,c)
-		else:
-			mod = Color(0,0,0)
-		
-		if !$LightBuzz.playing:
-			$LightBuzz.play()
+		boot_main_screen(delta)
 	else:
 		pulse_glow(delta)
 		mod = Color(1,1,1)
 	
+	print_report(delta)
+
+## Fades light, etc to prepare for game
+func boot_game(delta):
+	to_start -= delta
+	if to_start <= 0:
+		start_game()
+	var c = pow(to_start, 15)
+	mod = Color(c, c, c)
+	$LightBuzz.stop()
+
+## Flickers lights, starts light noise, etc.
+func boot_main_screen(delta):
+	var dip_a = randf_range(0, 1)
+	var dip_b = randf_range(0, 1)
+	var threshold = 0.7
+	var a = 1 - 1 / (1 + 100 * pow(elapsed - dip_a, 2))
+	var b = 1 - 1 / (1 + 100 * pow(elapsed - dip_b, 2))
+	if a * b > threshold:
+		var c = a * b * pow(elapsed, 3) * 0.5
+		mod = Color(c,c,c)
+	else:
+		mod = Color(0,0,0)
+	
+	if !$LightBuzz.playing:
+		$LightBuzz.play()
+
+## Moves the report up the screen, plays print noises, etc.
+func print_report(delta):
 	if printing > 0:
-		var elapsed = 5 - printing
-		for range in printing_moves:
-			if elapsed > range[0] and elapsed < range[1]:
+		var printing_elapsed = 5 - printing
+		for interval in printing_moves:
+			if printing_elapsed > interval[0] and printing_elapsed < interval[1]:
 				$Stats.anchor_top -= delta * 0.2
 		printing -= delta
-		if elapsed > 4.0:
+		if printing_elapsed > 4.0:
 			if !$RipSound.playing:
 				if !ripped:
 					$RipSound.play()
 					ripped = true
 			else:
-				var past = elapsed - 4
+				var past = printing_elapsed - 4
 				$Stats.rotation_degrees = pow(4*past, 3)
-		if elapsed > 4.3:
+		if printing_elapsed > 4.3:
 			$Stats.anchor_top = clamp($Stats.anchor_top - delta * 0.8, 0, 1)
-			if elapsed >= 5:
+			if printing_elapsed >= 5:
 				$Stats.anchor_top = 0
 			if $Stats.anchor_top == 0:
 				printing = 0
@@ -127,8 +140,6 @@ func credits_close():
 
 func credits_open():
 	$Credits.visible = true
-
-
 
 func _on_bell_button_pressed():
 	if printing == 0:

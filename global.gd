@@ -18,7 +18,7 @@ var lang = "en" : set = change_lang
 var challenge_errors = {} 
 
 @export var music : Array[AudioStream]
-var played = [] : set = update_played
+var played = []
 var saved = false
 
 ## Animal pngs for the animal challenge. Loaded here to save load time in game. In theory.
@@ -48,14 +48,16 @@ var saveable = [
 	"lang"
 	]
 
-
+## Sets a saveable variable & saves if no save has occured since last frame
 func set_saveable(variable : String, new_val):
 	set(variable, new_val)
 	if !saved:
 		save_game()
 		saved = true
 
+## Changes the master volume
 func change_master_vol(new_vol):
+	new_vol = sqrt(float(new_vol) / 100) * 100
 	AudioServer.set_bus_volume_db(0, (new_vol - 100) * 0.4)
 	if new_vol == 0:
 		AudioServer.set_bus_mute(0, true)
@@ -63,7 +65,9 @@ func change_master_vol(new_vol):
 		AudioServer.set_bus_mute(0, false)
 	master_vol = new_vol
 
+## Changes the effect volume
 func change_effect_vol(new_vol):
+	new_vol = sqrt(float(new_vol) / 100) * 100
 	AudioServer.set_bus_volume_db(1, (new_vol - 100) * 0.4)
 	if new_vol == 0:
 		AudioServer.set_bus_mute(1, true)
@@ -71,7 +75,9 @@ func change_effect_vol(new_vol):
 		AudioServer.set_bus_mute(1, false)
 	effect_vol = new_vol
 
+## Changes the music volume
 func change_music_vol(new_vol):
+	new_vol = sqrt(float(new_vol) / 100) * 100
 	AudioServer.set_bus_volume_db(2, (new_vol - 100) * 0.4)
 	if new_vol == 0:
 		AudioServer.set_bus_mute(2, true)
@@ -93,6 +99,7 @@ func _ready():
 		high_score_date = current_score_date
 		current_score = 0
 
+## Plays new music, clears the played music if full
 func play_new_music():
 	var options = music.duplicate()
 	if music.size() == played.size():
@@ -106,23 +113,20 @@ func play_new_music():
 	played.append(options[0])
 	Music.play()
 
-func update_played(new_played):
-	if new_played.size() == music.size():
-		played = []
-	else:
-		played = new_played
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if saved:
 		saved = false
 
+## Saves the language, saves
 func change_lang(new_lang):
 	TranslationServer.set_locale(new_lang)
 	lang = new_lang
 	lang_changed.emit(new_lang)
 	save_game()
 
+## Creates a palette of colors. Used by some of the challenges
 func generate_colors(num_colors):
 	var color_picks = []
 	var available = palette_centers.duplicate()
@@ -134,6 +138,7 @@ func generate_colors(num_colors):
 		color_picks.append(Color.from_hsv(hue, sat, val))
 	return color_picks
 
+## Randomly selects a number of items from an array
 func get_n_items_from_array(n : int, array : Array):
 	var result = []
 	var available = array.duplicate()
@@ -144,15 +149,18 @@ func get_n_items_from_array(n : int, array : Array):
 		i += 1
 	return result
 
+## Returns the screen resolution
 func get_resolution():
 	return get_viewport().get_visible_rect().size
 
+## Literally just the heaviside function
 func heaviside(value):
 	if value > 0:
 		return 1
 	else:
 		return 0
 
+## Returns a consistent date format string
 func get_date():
 	var new_date = Time.get_date_dict_from_system()
 	return str(new_date["month"]) + "/" + str(new_date["day"]) + "/" + str(new_date["year"]).right(2)
@@ -166,6 +174,7 @@ func log_error(node_name : String, error : float):
 	else:
 		challenge_errors[chal_name] = [error]
 
+## Saves the game to a local file
 func save_game():
 	var save = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	
@@ -176,6 +185,7 @@ func save_game():
 	var json_string = JSON.stringify(dict)
 	save.store_line(json_string)
 
+## Loads the game from the local file
 func load_game():
 	var save = FileAccess.open("user://savegame.save", FileAccess.READ)
 	if save != null:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://lyb1cvot30sk"]
+[gd_scene load_steps=32 format=3 uid="uid://lyb1cvot30sk"]
 
 [ext_resource type="Script" path="res://main_screen.gd" id="1_w633q"]
 [ext_resource type="Texture2D" uid="uid://cmbxlt7gidy1u" path="res://Graphics/main_screen_render_no_bell.png" id="2_o4r3k"]
@@ -15,6 +15,10 @@
 [ext_resource type="AudioStream" uid="uid://d2i533ilt1moy" path="res://Audio/report.mp3" id="10_q2804"]
 [ext_resource type="AudioStream" uid="uid://dufppw4oy6vww" path="res://Audio/service-bell-ring-14610.mp3" id="11_jsyec"]
 [ext_resource type="AudioStream" uid="uid://cdeld0ibfcu0e" path="res://Audio/paper-rip-87198.mp3" id="13_5qym3"]
+
+[sub_resource type="Curve" id="Curve_bwtlm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rbiy"]
 
@@ -104,6 +108,30 @@ theme = ExtResource("4_v1t4b")
 theme_override_font_sizes/font_size = 120
 text = "0"
 horizontal_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="Room/Score"]
+position = Vector2(100, 200)
+points = PackedVector2Array(200, 0, 0, 0)
+width_curve = SubResource("Curve_bwtlm")
+default_color = Color(0, 0, 0, 0.152941)
+end_cap_mode = 2
+antialiased = true
+
+[node name="Line2D2" type="Line2D" parent="Room/Score"]
+position = Vector2(100, 200)
+points = PackedVector2Array(30, 30, 0, 0)
+width_curve = SubResource("Curve_bwtlm")
+default_color = Color(0, 0, 0, 0.152941)
+end_cap_mode = 2
+antialiased = true
+
+[node name="Line2D3" type="Line2D" parent="Room/Score"]
+position = Vector2(100, 200)
+points = PackedVector2Array(30, -30, 0, 0)
+width_curve = SubResource("Curve_bwtlm")
+default_color = Color(0, 0, 0, 0.152941)
+end_cap_mode = 2
+antialiased = true
 
 [node name="ButtonGlow" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -229,6 +257,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+uri = "https://linktr.ee/brandonfecht"
 
 [node name="WhoHelped" type="Label" parent="Credits"]
 layout_mode = 1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://2w6grytoalwe"
+path="res://.godot/imported/Apero Hour.ogg-a0e498b0cad0dbb99e84e167c958e2af.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Music/Apero Hour.ogg"
+dest_files=["res://.godot/imported/Apero Hour.ogg-a0e498b0cad0dbb99e84e167c958e2af.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

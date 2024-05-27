@@ -283,6 +283,7 @@ func move_challenge(progress):
 		var c = retro_over / 2
 		var b = (-a / min_x - 1) / pow(c, 2)
 		$Slide.position.x = a / (1 + b * pow(progress - c, 2)) + min_x
+		print(progress)
 		update_colors(progress)
 
 ## Updates the colors of the background nodes

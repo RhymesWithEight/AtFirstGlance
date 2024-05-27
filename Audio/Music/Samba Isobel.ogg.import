@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bts1ko28r8ewt"
+path="res://.godot/imported/Samba Isobel.ogg-8cb4192af9d8f3e9f2767b1942fa68dd.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Music/Samba Isobel.ogg"
+dest_files=["res://.godot/imported/Samba Isobel.ogg-8cb4192af9d8f3e9f2767b1942fa68dd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

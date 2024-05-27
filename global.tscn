@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dbr28jspagpti"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_f5jmu"]
-[ext_resource type="AudioStream" uid="uid://boad4342pxcdj" path="res://Audio/Music/Apero Hour.mp3" id="2_adudo"]
-[ext_resource type="AudioStream" uid="uid://dn16svyxcydnp" path="res://Audio/Music/Backbay Lounge.mp3" id="3_3bf8p"]
-[ext_resource type="AudioStream" uid="uid://da1l6gyqmv2l2" path="res://Audio/Music/Bossa Antigua.mp3" id="4_es87i"]
-[ext_resource type="AudioStream" uid="uid://ccwcwm661ygur" path="res://Audio/Music/Samba Isobel.mp3" id="6_548m0"]
+[ext_resource type="AudioStream" uid="uid://2w6grytoalwe" path="res://Audio/Music/Apero Hour.ogg" id="2_htbrj"]
+[ext_resource type="AudioStream" uid="uid://cvimjo6ssxkt0" path="res://Audio/Music/Backbay Lounge.ogg" id="3_1wwpb"]
+[ext_resource type="AudioStream" uid="uid://cnhecb4cexut3" path="res://Audio/Music/Bossa Antigua.ogg" id="4_apm28"]
+[ext_resource type="AudioStream" uid="uid://bts1ko28r8ewt" path="res://Audio/Music/Samba Isobel.ogg" id="5_qr4pb"]
 [ext_resource type="Texture2D" uid="uid://c00yveicjq37o" path="res://Graphics/Animals/elephant.png" id="6_oorm3"]
 [ext_resource type="Texture2D" uid="uid://nuachuq3jxfa" path="res://Graphics/Animals/gazelle.png" id="7_viia0"]
 [ext_resource type="Texture2D" uid="uid://bydsws5mrj7d1" path="res://Graphics/Animals/giraffe.png" id="8_o82jq"]
@@ -13,7 +13,7 @@
 
 [node name="Global" type="Node"]
 script = ExtResource("1_f5jmu")
-music = Array[AudioStream]([ExtResource("2_adudo"), ExtResource("3_3bf8p"), ExtResource("4_es87i"), ExtResource("6_548m0")])
+music = Array[AudioStream]([ExtResource("2_htbrj"), ExtResource("3_1wwpb"), ExtResource("4_apm28"), ExtResource("5_qr4pb")])
 animals = {
 "Elephant": ExtResource("6_oorm3"),
 "Gazelle": ExtResource("7_viia0"),

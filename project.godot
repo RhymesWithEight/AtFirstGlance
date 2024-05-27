@@ -12,10 +12,10 @@ config_version=5
 
 config/name="At First Glance"
 config/description="A game of quick visual estimation."
-run/main_scene="res://main_screen.tscn"
-config/features=PackedStringArray("4.0", "Mobile")
-config/icon="res://icon.svg"
+run/main_scene="res://godot_splash.tscn"
 config/quit_on_go_back=false
+config/features=PackedStringArray("4.1", "Mobile")
+config/icon="res://icon.svg"
 
 [autoload]
 
@@ -28,9 +28,9 @@ window/size/viewport_width=1080
 window/size/viewport_height=1920
 window/size/window_width_override=450
 window/size/window_height_override=800
-window/handheld/orientation=1
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [input_devices]
 

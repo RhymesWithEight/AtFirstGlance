@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cvimjo6ssxkt0"
+path="res://.godot/imported/Backbay Lounge.ogg-3220aa642bce7a0bf81fb3d9d9045a43.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Music/Backbay Lounge.ogg"
+dest_files=["res://.godot/imported/Backbay Lounge.ogg-3220aa642bce7a0bf81fb3d9d9045a43.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

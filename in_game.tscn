@@ -382,13 +382,13 @@ offset_top = -40.0
 texture = ExtResource("14_7j0cc")
 stretch_mode = 2
 
-[node name="Settings" parent="." instance=ExtResource("2_cqj4t")]
-layout_mode = 1
-metadata/_edit_lock_ = true
-
 [node name="SlideChange" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_cl6ye")
 volume_db = -4.0
+
+[node name="Settings" parent="." instance=ExtResource("2_cqj4t")]
+layout_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="FanNoise" type="AudioStreamPlayer" parent="."]
 process_mode = 3
